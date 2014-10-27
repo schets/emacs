@@ -11,15 +11,7 @@ tramp
 .org-id-locations
 *_archive
 
-# elpa
-elpa
-
-# el-get
-el-get
-
 # the generated el files by org-babel
-ome*el
-*ome*part*el
 *ome*part*org
 
 # auto-complete data file
@@ -42,3 +34,6 @@ doc
 
 # abbrev
 abbrev_defs
+
+#stored xkcds
+xkcd
