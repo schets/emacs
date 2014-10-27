@@ -3,18 +3,16 @@
 ;;; and don't want to bother with the huge ome.*org files, you can put things
 ;;; here.
 
-;; For example, oh-my-emacs disables menu-bar-mode by default. If you want it
-;; back, just put following code here.
-(menu-bar-mode t)
-
 ;;; You email address
-(setq user-mail-address "xiaohanyu1988@gmail.com")
+(setq user-mail-address "sams@gmail.com")
+(menu-bar-mode -1)
+(tool-bar-mode -1)
 
 ;;; Calendar settings
 ;; you can use M-x sunrise-sunset to get the sun time
-(setq calendar-latitude 39.9)
-(setq calendar-longitude 116.3)
-(setq calendar-location-name "Beijing, China")
+(setq calendar-latitude 30.37)
+(setq calendar-longitude -97.79)
+(setq calendar-location-name "Austin, Texas, U.S.")
 
 ;;; Time related settings
 ;; show time in 24hours format
@@ -25,6 +23,22 @@
 (setq display-time-interval 10)
 ;; show time
 (display-time-mode t)
+
+(elpy-use-ipython)
+
+(global-set-key (kbd "M-x") 'execute-extended-command)
+;;(load "~/.emacs.d/core/evil-paredit.el")
+;;(evil-paredit-mode)
+(setq ac-disable-faces nil)
+
+
+(require 'ido)
+(ido-mode t)
+(add-to-list 'custom-theme-load-path "~/.emacs.d/themes/")
+(load "~/.emacs.d/themes/zenburn.el")
+(load "~/.emacs.d/keychord.el")
+(key-chord-mode 1) 
+(key-chord-define evil-insert-state-map ";;" 'evil-normal-state)
 
 ;;; Some tiny tool functions
 (defun replace-all-chinese-quote ()
@@ -93,7 +107,7 @@ inversion of gas-comment-region"
      ("#93115C" . 85)
      ("#073642" . 100))))
  '(inhibit-startup-screen t)
- '(magit-diff-use-overlays nil)
+ ;;'(magit-diff-use-overlays nil)
  '(smartrep-mode-line-active-bg (solarized-color-blend "#859900" "#839496" 0.2))
  '(term-default-bg-color "#002b36")
  '(term-default-fg-color "#839496")
