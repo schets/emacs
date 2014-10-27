@@ -67,30 +67,3 @@ FILENAME defaults to `buffer-file-name'."
 
 ;; load up the ome
 (org-babel-load-file (expand-file-name "ome.org" ome-dir))
-
-(global-set-key (kbd "M-x") 'execute-extended-command)
-
-(require 'ido)
-(ido-mode t)
-(add-to-list 'custom-theme-load-path "~/.emacs.d/themes/")
-(load "~/.emacs.d/themes/zenburn.el")
-   
- ;;; C-c as general purpose escape key sequence.
-   ;;;
-(defun my-esc (prompt)
-  "Functionality for escaping generally.  Includes exiting Evil insert state and C-g binding. "
-  (cond
-   ;; If we're in one of the Evil states that defines [escape] key, return [escape] so as
-   ;; Key Lookup will use it.
-   ((or (evil-insert-state-p) (evil-normal-state-p) (evil-replace-state-p) (evil-visual-state-p)) [escape])
-   ;; This is the best way I could infer for now to have C-c work during evil-read-key.
-   ;; Note: As long as I return [escape] in normal-state, I don't need this.
-   ;;((eq overriding-terminal-local-map evil-read-key-map) (keyboard-quit) (kbd ""))
-   (t (kbd "C-g"))))
-(define-key key-translation-map (kbd "C-g") 'my-esc)
-
-
-(load "~/.emacs.d/keychord.el")
-(key-chord-mode 1)
-(key-chord-define evil-insert-state-map ";;" 'evil-normal-state)
-;;; init.el ends here

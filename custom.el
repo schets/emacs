@@ -4,9 +4,10 @@
 ;;; here.
 
 ;;; You email address
-(setq user-mail-address "sams@gmail.com")
+(setq user-mail-address "samschet@gmail.com")
 (menu-bar-mode -1)
 (tool-bar-mode -1)
+(scroll-bar-mode -1)
 
 ;;; Calendar settings
 ;; you can use M-x sunrise-sunset to get the sun time
@@ -24,16 +25,74 @@
 ;; show time
 (display-time-mode t)
 
+(add-hook 'term-mode-hook (lambda()
+			    (setq yas-dont-activate t)))
+
+(highlight-indentation-mode -1)
+(linum-relative-toggle)
+
+(global-set-key "\M-\r" 'shell-resync-dirs)
+
+(add-hook 'after-init-time #'global-flycheck-mode)
+
+;; better smartparens keybindings
+(let ((map smartparens-mode-map))
+  ;; Movement and navigation
+  (define-key map (kbd "C-M-f") #'sp-forward-sexp)
+  (define-key map (kbd "C-M-b") #'sp-backward-sexp)
+  (define-key map (kbd "C-M-u") #'sp-backward-up-sexp)
+  (define-key map (kbd "C-M-d") #'sp-down-sexp)
+  (define-key map (kbd "C-M-p") #'sp-backward-down-sexp)
+  (define-key map (kbd "C-M-n") #'sp-up-sexp)
+  ;; Deleting and killing
+  (define-key map (kbd "C-M-k") #'sp-kill-sexp)
+  (define-key map (kbd "C-M-w") #'sp-copy-sexp)
+  ;; Depth changing
+  (define-key map (kbd "M-s") #'sp-splice-sexp)
+  (define-key map (kbd "M-<up>") #'sp-splice-sexp-killing-backward)
+  (define-key map (kbd "M-<down>") #'sp-splice-sexp-killing-forward)
+  (define-key map (kbd "M-r") #'sp-splice-sexp-killing-around)
+  (define-key map (kbd "M-?") #'sp-convolute-sexp)
+  ;; Barfage & Slurpage
+  (define-key map (kbd "C-)")  #'sp-forward-slurp-sexp)
+  (define-key map (kbd "C-<right>") #'sp-forward-slurp-sexp)
+  (define-key map (kbd "C-}")  #'sp-forward-barf-sexp)
+  (define-key map (kbd "C-<left>") #'sp-forward-barf-sexp)
+  (define-key map (kbd "C-(")  #'sp-backward-slurp-sexp)
+  (define-key map (kbd "C-M-<left>") #'sp-backward-slurp-sexp)
+  (define-key map (kbd "C-{")  #'sp-backward-barf-sexp)
+  (define-key map (kbd "C-M-<right>") #'sp-backward-barf-sexp)
+  ;; Miscellaneous commands
+  (define-key map (kbd "M-S") #'sp-split-sexp)
+  (define-key map (kbd "M-J") #'sp-join-sexp)
+  (define-key map (kbd "C-M-t") #'sp-transpose-sexp))
+
+;; Some additional bindings for strict mode
+(let ((map smartparens-strict-mode-map))
+  (define-key map (kbd "M-q") #'sp-indent-defun)
+  (define-key map (kbd "C-j") #'sp-newline))
+
+(smartparens-global-mode)
+(show-smartparens-global-mode)          ; Show parenthesis
+
+
+(defun my-bell-function ()
+  (unless (memq this-command
+		'(isearch-abort abort-recursive-edit exit-minibuffer
+				keyboard-quit mwheel-scroll down up next-line previous-line
+				backward-char forward-char))
+    (ding)))
+(setq ring-bell-function 'my-bell-function)
+
+
 (elpy-use-ipython)
 
 (global-set-key (kbd "M-x") 'execute-extended-command)
-;;(load "~/.emacs.d/core/evil-paredit.el")
-;;(evil-paredit-mode)
 (setq ac-disable-faces nil)
 
 
-(require 'ido)
-(ido-mode t)
+;;(require 'ido)
+;;(ido-mode t)
 (add-to-list 'custom-theme-load-path "~/.emacs.d/themes/")
 (load "~/.emacs.d/themes/zenburn.el")
 (load "~/.emacs.d/keychord.el")
@@ -88,7 +147,7 @@ inversion of gas-comment-region"
  '(cua-read-only-cursor-color "#859900")
  '(custom-safe-themes
    (quote
-    ("8aebf25556399b58091e533e455dd50a6a9cba958cc4ebb0aab175863c25b9a4" "943bff6eada8e1796f8192a7124c1129d6ff9fbd1a0aed7b57ad2bf14201fdd4" default)))
+    ("e16a771a13a202ee6e276d06098bc77f008b73bbac4d526f160faa2d76c1dd0e" "8aebf25556399b58091e533e455dd50a6a9cba958cc4ebb0aab175863c25b9a4" "943bff6eada8e1796f8192a7124c1129d6ff9fbd1a0aed7b57ad2bf14201fdd4" default)))
  '(highlight-changes-colors (quote ("#d33682" "#6c71c4")))
  '(highlight-symbol-colors
    (--map
@@ -107,7 +166,6 @@ inversion of gas-comment-region"
      ("#93115C" . 85)
      ("#073642" . 100))))
  '(inhibit-startup-screen t)
- ;;'(magit-diff-use-overlays nil)
  '(smartrep-mode-line-active-bg (solarized-color-blend "#859900" "#839496" 0.2))
  '(term-default-bg-color "#002b36")
  '(term-default-fg-color "#839496")
