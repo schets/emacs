@@ -1,10 +1,6 @@
-((ac-nrepl status "installed" recipe
-	   (:name ac-nrepl :after
-		  (progn
-		    (ome-ac-nrepl-setup))
-		  :description "Nrepl completion source for Emacs auto-complete package" :type github :pkgname "clojure-emacs/ac-nrepl" :depends
-		  (auto-complete cider)
-		  :features ac-nrepl))
+((ac-cider status "installed" recipe
+	   (:name ac-cider :auto-generated t :type elpa :description "Clojure auto-complete sources using CIDER" :repo nil :depends
+		  (cider auto-complete cl-lib)))
  (ace-jump-mode status "installed" recipe
 		(:name ace-jump-mode :after
 		       (progn
@@ -19,10 +15,9 @@
 				      (expand-file-name "dict" default-directory))
 			 (ac-config-default))))
  (auto-complete-clang status "installed" recipe
-		      (:name auto-complete-clang :after
-			     (progn
-			       (ome-auto-complete-clang-setup))
-			     :website "https://github.com/brianjcj/auto-complete-clang" :description "Auto-complete sources for Clang. Combine the power of AC, Clang and Yasnippet." :type github :pkgname "brianjcj/auto-complete-clang" :depends auto-complete))
+		      (:name auto-complete-clang :website "https://github.com/brianjcj/auto-complete-clang" :description "Auto-complete sources for Clang. Combine the power of AC, Clang and Yasnippet." :type github :pkgname "brianjcj/auto-complete-clang" :depends auto-complete))
+ (buffer-move status "installed" recipe
+	      (:name buffer-move :description "Swap buffers without typing C-x b on each window" :type emacswiki :features buffer-move))
  (cider status "installed" recipe
 	(:name cider :after
 	       (progn
@@ -127,6 +122,8 @@
 			(:name highlight-indentation :description "Function for highlighting indentation" :type git :url "https://github.com/antonj/Highlight-Indentation-for-Emacs"))
  (htmlize status "installed" recipe
 	  (:type github :pkgname "emacsmirror/htmlize" :name htmlize :website "http://www.emacswiki.org/emacs/Htmlize" :description "Convert buffer text and decorations to HTML." :type emacsmirror :localname "htmlize.el"))
+ (hy-mode status "installed" recipe
+	  (:name hy-mode :website "https://github.com/hylang/hy-mode" :description "Emacs support for the Hy language." :type github :pkgname "hylang/hy-mode"))
  (idomenu status "installed" recipe
 	  (:name idomenu :type emacswiki :description "imenu tag selection a la ido" :load-path "."))
  (iedit status "installed" recipe
@@ -134,6 +131,8 @@
  (jedi status "installed" recipe
        (:name jedi :description "An awesome Python auto-completion for Emacs" :type github :pkgname "tkf/emacs-jedi" :submodule nil :depends
 	      (epc auto-complete python-environment)))
+ (jira status "installed" recipe
+       (:name jira :auto-generated t :type elpa :description "Connect to JIRA issue tracking software" :repo nil))
  (json status "installed" recipe
        (:name json :description "JavaScript Object Notation parser / generator" :type http :builtin "23" :url "http://edward.oconnor.cx/elisp/json.el"))
  (linum-relative status "installed" recipe
@@ -156,6 +155,8 @@
 				    '("\\.\\(md\\|mdown\\|markdown\\)\\'" . markdown-mode))))
  (nose status "installed" recipe
        (:type github :pkgname "emacsmirror/nose" :name nose :website "https://bitbucket.org/durin42/nosemacs" :description "Emacs extension to provide easy nosetest integration." :type emacsmirror :pkgname nose))
+ (org-jira status "installed" recipe
+	   (:name org-jira :description "Use Jira in Emacs org-mode." :type github :pkgname "baohaojun/org-jira" :depends soap-client))
  (org-mode status "installed" recipe
 	   (:name org-mode :website "http://orgmode.org/" :description "Org-mode is for keeping notes, maintaining ToDo lists, doing project planning, and authoring with a fast and effective plain-text system." :type git :url "git://orgmode.org/org-mode.git" :info "doc" :build/berkeley-unix `,(mapcar
 																																				       (lambda
@@ -252,6 +253,8 @@
 		     (progn
 		       (ome-smartparens-setup))
 		     :description "Autoinsert pairs of defined brackets and wrap regions" :type github :pkgname "Fuco1/smartparens" :depends dash))
+ (soap-client status "installed" recipe
+	      (:name soap-client :website "http://code.google.com/p/emacs-soap-client/" :description "The soap-client.el library provides access to SOAP web-services from Emacs. It supports encoding/decoding SOAP messages based on WSDL descriptors." :type hg :url "https://code.google.com/p/emacs-soap-client/"))
  (solarized-emacs status "installed" recipe
 		  (:name solarized-emacs :description "Solarized for Emacs is an Emacs port of the Solarized theme for vim, developed by Ethan Schoonover." :website "https://github.com/bbatsov/solarized-emacs" :minimum-emacs-version "24" :type github :pkgname "bbatsov/solarized-emacs" :depends dash :prepare
 			 (add-to-list 'custom-theme-load-path default-directory)))

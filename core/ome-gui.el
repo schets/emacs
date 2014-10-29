@@ -33,23 +33,23 @@
 
 ;; (global-set-key (kbd "<f11>") 'ome-toggle-fullscreen)
 
-(defun ome-solarized-emacs-setup ()
-  ;; make the fringe stand out from the background
-  (setq solarized-distinct-fringe-background t)
-  ;; make the modeline high contrast
-  (setq solarized-high-contrast-mode-line t)
-  ;; Use less bolding
-  (setq solarized-use-less-bold t)
-  ;; Use more italics
-  (setq solarized-use-more-italic t)
-  ;; Use less colors for indicators such as git:gutter, flycheck and similar.
-  (setq solarized-emphasize-indicators nil)
+;; (defun ome-solarized-emacs-setup ()
+;;   ;; make the fringe stand out from the background
+;;   (setq solarized-distinct-fringe-background t)
+;;   ;; make the modeline high contrast
+;;   (setq solarized-high-contrast-mode-line t)
+;;   ;; Use less bolding
+;;   (setq solarized-use-less-bold t)
+;;   ;; Use more italics
+;;   (setq solarized-use-more-italic t)
+;;   ;; Use less colors for indicators such as git:gutter, flycheck and similar.
+;;   (setq solarized-emphasize-indicators nil)
 
-  (setq x-underline-at-descent-line t)
+;;   (setq x-underline-at-descent-line t)
 
-  (load-theme 'solarized-dark t))
+;;   (load-theme 'solarized-dark t))
 
-(ome-install 'solarized-emacs)
+;;(ome-install 'solarized-emacs)
 
 (ome-install 'powerline)
 (defun ome-powerline-setup ()

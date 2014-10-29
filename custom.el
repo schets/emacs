@@ -28,7 +28,8 @@
 (add-hook 'term-mode-hook (lambda()
 			    (setq yas-dont-activate t)))
 
-(highlight-indentation-mode -1)
+(define-key evil-normal-state-map ";" nil)
+
 (linum-relative-toggle)
 
 (global-set-key "\M-\r" 'shell-resync-dirs)
@@ -84,8 +85,13 @@
     (ding)))
 (setq ring-bell-function 'my-bell-function)
 
+(setq mouse-wheel-scroll-amount '(1 ((shift) . 1))) ;; one line at a time
 
-(elpy-use-ipython)
+(setq mouse-wheel-progressive-speed nil) ;; don't accelerate scrolling
+
+(setq mouse-wheel-follow-mouse 't) ;; scroll window under mouse
+
+(setq scroll-step 1) ;; keyboard scroll one line at a time
 
 (global-set-key (kbd "M-x") 'execute-extended-command)
 (setq ac-disable-faces nil)
@@ -93,6 +99,7 @@
 
 ;;(require 'ido)
 ;;(ido-mode t)
+(setq backup-directory-alist `(("." . "~/.saves")))
 (add-to-list 'custom-theme-load-path "~/.emacs.d/themes/")
 (load "~/.emacs.d/themes/zenburn.el")
 (load "~/.emacs.d/keychord.el")
@@ -140,6 +147,7 @@ inversion of gas-comment-region"
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(cider-annotate-completion-candidates t)
  '(compilation-message-face (quote default))
  '(cua-global-mark-cursor-color "#2aa198")
  '(cua-normal-cursor-color "#839496")
@@ -148,6 +156,11 @@ inversion of gas-comment-region"
  '(custom-safe-themes
    (quote
     ("e16a771a13a202ee6e276d06098bc77f008b73bbac4d526f160faa2d76c1dd0e" "8aebf25556399b58091e533e455dd50a6a9cba958cc4ebb0aab175863c25b9a4" "943bff6eada8e1796f8192a7124c1129d6ff9fbd1a0aed7b57ad2bf14201fdd4" default)))
+ '(elpy-default-minor-modes (quote (eldoc-mode yas-minor-mode auto-complete-mode)))
+ '(haskell-interactive-popup-errors nil)
+ '(haskell-notify-p t)
+ '(haskell-stylish-on-save t)
+ '(haskell-tags-on-save t)
  '(highlight-changes-colors (quote ("#d33682" "#6c71c4")))
  '(highlight-symbol-colors
    (--map
@@ -166,7 +179,11 @@ inversion of gas-comment-region"
      ("#93115C" . 85)
      ("#073642" . 100))))
  '(inhibit-startup-screen t)
+ '(show-smartparens-global-mode t)
+ '(smartparens-global-mode t)
+ '(smartparens-global-strict-mode t)
  '(smartrep-mode-line-active-bg (solarized-color-blend "#859900" "#839496" 0.2))
+ '(sp-show-pair-from-inside t)
  '(term-default-bg-color "#002b36")
  '(term-default-fg-color "#839496")
  '(weechat-color-list

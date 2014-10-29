@@ -3,45 +3,30 @@
 ;;; Code:
 
 
-;;;### (autoloads nil "ac-nrepl/ac-nrepl" "ac-nrepl/ac-nrepl.el"
-;;;;;;  (21581 48947 0 0))
-;;; Generated autoloads from ac-nrepl/ac-nrepl.el
+;;;### (autoloads nil "ac-cider/ac-cider" "ac-cider/ac-cider.el"
+;;;;;;  (21583 4849 0 0))
+;;; Generated autoloads from ac-cider/ac-cider.el
 
-(defface ac-nrepl-candidate-face '((t (:inherit ac-candidate-face))) "\
+(defface ac-cider-candidate-face '((t (:inherit ac-candidate-face))) "\
 Face for nrepl candidates." :group (quote auto-complete))
 
-(defface ac-nrepl-selection-face '((t (:inherit ac-selection-face))) "\
+(defface ac-cider-selection-face '((t (:inherit ac-selection-face))) "\
 Face for the nrepl selected candidate." :group (quote auto-complete))
 
-(defconst ac-nrepl-source-defaults '((available . ac-nrepl-available-p) (candidate-face . ac-nrepl-candidate-face) (selection-face . ac-nrepl-selection-face) (prefix . ac-nrepl-symbol-start-pos) (document . ac-nrepl-documentation)) "\
+(defconst ac-cider-source-defaults '((available . ac-cider-available-p) (candidate-face . ac-cider-candidate-face) (selection-face . ac-cider-selection-face) (prefix . cider-completion-symbol-start-pos) (match . ac-cider-match-fuzzy) (document . ac-cider-documentation) (cache)) "\
 Defaults common to the various completion sources.")
 
-(defvar ac-source-nrepl-ns (append '((candidates . ac-nrepl-candidates-ns) (symbol . "n")) ac-nrepl-source-defaults) "\
-Auto-complete source for nrepl ns completion.")
+(defvar ac-source-cider-everything (append '((candidates . ac-cider-candidates-everything) (symbol . "v")) ac-cider-source-defaults) "\
+Auto-complete source for CIDER buffers.")
 
-(defvar ac-source-nrepl-vars (append '((candidates . ac-nrepl-candidates-vars) (symbol . "v")) ac-nrepl-source-defaults) "\
-Auto-complete source for nrepl var completion.")
-
-(defvar ac-source-nrepl-ns-classes (append '((candidates . ac-nrepl-candidates-ns-classes) (symbol . "c")) ac-nrepl-source-defaults) "\
-Auto-complete source for nrepl ns-specific class completion.")
-
-(defvar ac-source-nrepl-all-classes (append '((candidates . ac-nrepl-candidates-all-classes) (symbol . "c")) ac-nrepl-source-defaults) "\
-Auto-complete source for nrepl all class completion.")
-
-(defvar ac-source-nrepl-java-methods (append '((candidates . ac-nrepl-candidates-java-methods) (symbol . "m")) ac-nrepl-source-defaults) "\
-Auto-complete source for nrepl java method completion.")
-
-(defvar ac-source-nrepl-static-methods (append '((candidates . ac-nrepl-candidates-static-methods) (symbol . "s")) ac-nrepl-source-defaults) "\
-Auto-complete source for nrepl java static method completion.")
-
-(autoload 'ac-nrepl-setup "ac-nrepl/ac-nrepl" "\
-Add the nrepl completion source to the front of `ac-sources'.
+(autoload 'ac-cider-setup "ac-cider/ac-cider" "\
+Add the CIDER completion source to the front of `ac-sources'.
 This affects only the current buffer.
 
 \(fn)" t nil)
 
-(autoload 'ac-nrepl-popup-doc "ac-nrepl/ac-nrepl" "\
-A popup alternative to `nrepl-doc'.
+(autoload 'ac-cider-popup-doc "ac-cider/ac-cider" "\
+A popup alternative to `cider-doc'.
 
 \(fn)" t nil)
 
@@ -147,7 +132,41 @@ See `auto-complete-mode' for more information on Auto-Complete mode.
 
 ;;;***
 
-;;;### (autoloads nil "cider/cider" "cider/cider.el" (21581 48944
+;;;### (autoloads nil "buffer-move/buffer-move" "buffer-move/buffer-move.el"
+;;;;;;  (21583 50253 0 0))
+;;; Generated autoloads from buffer-move/buffer-move.el
+
+(autoload 'buf-move-up "buffer-move/buffer-move" "\
+Swap the current buffer and the buffer above the split.
+If there is no split, ie now window above the current one, an
+error is signaled.
+
+\(fn)" t nil)
+
+(autoload 'buf-move-down "buffer-move/buffer-move" "\
+Swap the current buffer and the buffer under the split.
+If there is no split, ie now window under the current one, an
+error is signaled.
+
+\(fn)" t nil)
+
+(autoload 'buf-move-left "buffer-move/buffer-move" "\
+Swap the current buffer and the buffer on the left of the split.
+If there is no split, ie now window on the left of the current
+one, an error is signaled.
+
+\(fn)" t nil)
+
+(autoload 'buf-move-right "buffer-move/buffer-move" "\
+Swap the current buffer and the buffer on the right of the split.
+If there is no split, ie now window on the right of the current
+one, an error is signaled.
+
+\(fn)" t nil)
+
+;;;***
+
+;;;### (autoloads nil "cider/cider" "cider/cider.el" (21583 4934
 ;;;;;;  0 0))
 ;;; Generated autoloads from cider/cider.el
 
@@ -174,7 +193,7 @@ Create REPL buffer and start an nREPL client connection.
 ;;;***
 
 ;;;### (autoloads nil "cider/cider-browse-ns" "cider/cider-browse-ns.el"
-;;;;;;  (21581 48944 0 0))
+;;;;;;  (21583 4934 0 0))
 ;;; Generated autoloads from cider/cider-browse-ns.el
 
 (autoload 'cider-browse-ns "cider/cider-browse-ns" "\
@@ -190,7 +209,7 @@ List all loaded namespaces in BUFFER.
 ;;;***
 
 ;;;### (autoloads nil "cider/cider-classpath" "cider/cider-classpath.el"
-;;;;;;  (21581 48944 0 0))
+;;;;;;  (21583 4934 0 0))
 ;;; Generated autoloads from cider/cider-classpath.el
 
 (autoload 'cider-classpath "cider/cider-classpath" "\
@@ -206,7 +225,7 @@ Open a classpath entry.
 ;;;***
 
 ;;;### (autoloads nil "cider/cider-inspector" "cider/cider-inspector.el"
-;;;;;;  (21581 48944 0 0))
+;;;;;;  (21583 4934 0 0))
 ;;; Generated autoloads from cider/cider-inspector.el
 
 (autoload 'cider-inspect "cider/cider-inspector" "\
@@ -217,7 +236,7 @@ Eval the string EXPRESSION and inspect the result.
 ;;;***
 
 ;;;### (autoloads nil "cider/cider-macroexpansion" "cider/cider-macroexpansion.el"
-;;;;;;  (21581 48944 0 0))
+;;;;;;  (21583 4934 0 0))
 ;;; Generated autoloads from cider/cider-macroexpansion.el
 
 (autoload 'cider-macroexpand-1 "cider/cider-macroexpansion" "\
@@ -234,8 +253,8 @@ Invoke 'clojure.walk/macroexpand-all' on the expression preceding point.
 
 ;;;***
 
-;;;### (autoloads nil "cider/cider-mode" "cider/cider-mode.el" (21581
-;;;;;;  48944 0 0))
+;;;### (autoloads nil "cider/cider-mode" "cider/cider-mode.el" (21583
+;;;;;;  4934 0 0))
 ;;; Generated autoloads from cider/cider-mode.el
 
 (defvar cider-mode-line '(:eval (format " cider[%s]" (cider-current-ns))) "\
@@ -262,7 +281,7 @@ Minor mode for REPL interaction from a Clojure buffer.
 ;;;***
 
 ;;;### (autoloads nil "cider/cider-scratch" "cider/cider-scratch.el"
-;;;;;;  (21581 48944 0 0))
+;;;;;;  (21583 4934 0 0))
 ;;; Generated autoloads from cider/cider-scratch.el
 
 (autoload 'cider-scratch "cider/cider-scratch" "\
@@ -273,7 +292,7 @@ Create a scratch buffer.
 ;;;***
 
 ;;;### (autoloads nil "cider/cider-selector" "cider/cider-selector.el"
-;;;;;;  (21581 48944 0 0))
+;;;;;;  (21583 4934 0 0))
 ;;; Generated autoloads from cider/cider-selector.el
 
 (autoload 'cider-selector "cider/cider-selector" "\
@@ -2437,6 +2456,21 @@ HTMLize dired-marked files.
 
 ;;;***
 
+;;;### (autoloads nil "hy-mode/hy-mode" "hy-mode/hy-mode.el" (21584
+;;;;;;  4795 0 0))
+;;; Generated autoloads from hy-mode/hy-mode.el
+
+(add-to-list 'auto-mode-alist '("\\.hy\\'" . hy-mode))
+
+(add-to-list 'interpreter-mode-alist '("hy" . hy-mode))
+
+(autoload 'hy-mode "hy-mode/hy-mode" "\
+Major mode for editing Hy files.
+
+\(fn)" t nil)
+
+;;;***
+
 ;;;### (autoloads nil "idomenu/idomenu" "idomenu/idomenu.el" (21581
 ;;;;;;  48952 0 0))
 ;;; Generated autoloads from idomenu/idomenu.el
@@ -3329,6 +3363,105 @@ Major mode for editing Markdown files.
 Major mode for editing GitHub Flavored Markdown files.
 
 \(fn)" t nil)
+
+;;;***
+
+;;;### (autoloads nil "org-jira/org-jira" "org-jira/org-jira.el"
+;;;;;;  (21583 52008 0 0))
+;;; Generated autoloads from org-jira/org-jira.el
+
+(autoload 'org-jira-mode "org-jira/org-jira" "\
+Toggle org-jira mode.
+With no argument, the mode is toggled on/off.
+Non-nil argument turns mode on.
+Nil argument turns mode off.
+
+Commands:
+\\{org-jira-entry-mode-map}
+
+Entry to this mode calls the value of `org-jira-mode-hook'.
+
+\(fn &optional ARG)" t nil)
+
+(autoload 'org-jira-get-projects "org-jira/org-jira" "\
+Get list of projects.
+
+\(fn)" t nil)
+
+(autoload 'org-jira-get-issues-headonly "org-jira/org-jira" "\
+Get list of issues assigned to you and unresolved, head
+only. With a prefix argument, allow you to customize the jql. See `org-jira-get-issue-list'
+
+\(fn ISSUES)" t nil)
+
+(autoload 'org-jira-get-issues "org-jira/org-jira" "\
+Get list of issues. Default is get unfinished issues assigned
+to you, but you can customize jql with a prefix argument. See
+`org-jira-get-issue-list'
+
+\(fn ISSUES)" t nil)
+
+(autoload 'org-jira-update-comment "org-jira/org-jira" "\
+update a comment for the current issue
+
+\(fn)" t nil)
+
+(autoload 'org-jira-copy-current-issue-key "org-jira/org-jira" "\
+Copy the current issue's key into clipboard
+
+\(fn)" t nil)
+
+(autoload 'org-jira-update-issue "org-jira/org-jira" "\
+update an issue
+
+\(fn)" t nil)
+
+(autoload 'org-jira-todo-to-jira "org-jira/org-jira" "\
+convert an ordinary todo item to a jira ticket
+
+\(fn)" t nil)
+
+(autoload 'org-jira-get-subtasks "org-jira/org-jira" "\
+get subtasks for the current issue
+
+\(fn)" t nil)
+
+(autoload 'org-jira-create-issue "org-jira/org-jira" "\
+create an issue
+
+\(fn PROJECT TYPE SUMMARY DESCRIPTION)" t nil)
+
+(autoload 'org-jira-create-subtask "org-jira/org-jira" "\
+create an subtask issue
+
+\(fn PROJECT TYPE SUMMARY DESCRIPTION)" t nil)
+
+(autoload 'org-jira-refresh-issue "org-jira/org-jira" "\
+Refresh issue from jira to org
+
+\(fn)" t nil)
+
+(autoload 'org-jira-progress-issue "org-jira/org-jira" "\
+Progress issue workflow
+
+\(fn)" t nil)
+
+(autoload 'org-jira-browse-issue "org-jira/org-jira" "\
+Open the current issue in external browser.
+
+\(fn)" t nil)
+
+(autoload 'org-jira-get-issues-from-filter "org-jira/org-jira" "\
+Get issues from filter which are jql created and saved on the
+server side. Provide this command in case some users are not able
+to use client side jql (maybe because of Jira server version?).
+
+\(fn FILTER)" t nil)
+
+(autoload 'org-jira-get-issues-from-filter-headonly "org-jira/org-jira" "\
+Get issues *head only* from saved filter. See `org-jira-get-issues-from-filter'
+
+\(fn FILTER)" t nil)
 
 ;;;***
 
@@ -5458,13 +5591,11 @@ See `yas-minor-mode' for more information on Yas minor mode.
 
 ;;;***
 
-;;;### (autoloads nil nil ("auto-complete-clang/auto-complete-clang.el"
-;;;;;;  "auto-complete/auto-complete-pkg.el" "cider/cider-client.el"
-;;;;;;  "cider/cider-doc.el" "cider/cider-eldoc.el" "cider/cider-interaction.el"
-;;;;;;  "cider/cider-repl.el" "cider/cider-stacktrace.el" "cider/cider-test.el"
-;;;;;;  "cider/cider-util.el" "cider/nrepl-client.el" "clojure-mode/clojure-mode-extra-font-locking.el"
-;;;;;;  "ctable/ctable.el" "ctable/test-ctable.el" "dash/dash-functional.el"
-;;;;;;  "dash/dash.el" "deferred/concurrent-sample.el" "deferred/concurrent.el"
+;;;### (autoloads nil nil ("ac-cider/ac-cider-autoloads.el" "ac-cider/ac-cider-pkg.el"
+;;;;;;  "auto-complete-clang/auto-complete-clang.el" "auto-complete/auto-complete-pkg.el"
+;;;;;;  "clojure-mode/clojure-mode-extra-font-locking.el" "ctable/ctable.el"
+;;;;;;  "ctable/test-ctable.el" "dash/dash-functional.el" "dash/dash.el"
+;;;;;;  "deferred/concurrent-sample.el" "deferred/concurrent.el"
 ;;;;;;  "deferred/deferred-samples.el" "deferred/deferred.el" "deferred/test-concurrent.el"
 ;;;;;;  "deferred/test-deferred.el" "el-get/el-get-autoloads.el"
 ;;;;;;  "el-get/el-get-build.el" "el-get/el-get-byte-compile.el"
@@ -5494,8 +5625,10 @@ See `yas-minor-mode' for more information on Yas minor mode.
 ;;;;;;  "fuzzy/fuzzy.el" "git-gutter-fringe/git-gutter-fringe.el"
 ;;;;;;  "helm/helm-aliases.el" "helm/helm-autoloads.el" "helm/helm-pkg.el"
 ;;;;;;  "helm/helm-plugin.el" "helm/helm-source.el" "jedi/jedi-pkg.el"
-;;;;;;  "jedi/test-jedi.el" "jedi/tryout-jedi.el" "linum-relative/linum-relative.el"
-;;;;;;  "nose/nose.el" "org-mode/contrib/lisp/ob-eukleides.el" "org-mode/contrib/lisp/ob-fomus.el"
+;;;;;;  "jedi/test-jedi.el" "jedi/tryout-jedi.el" "jira/jira-autoloads.el"
+;;;;;;  "jira/jira-pkg.el" "jira/jira.el" "linum-relative/linum-relative.el"
+;;;;;;  "nose/nose.el" "org-jira/jira-users.el" "org-jira/jiralib.el"
+;;;;;;  "org-mode/contrib/lisp/ob-eukleides.el" "org-mode/contrib/lisp/ob-fomus.el"
 ;;;;;;  "org-mode/contrib/lisp/ob-julia.el" "org-mode/contrib/lisp/ob-mathomatic.el"
 ;;;;;;  "org-mode/contrib/lisp/ob-oz.el" "org-mode/contrib/lisp/ob-stata.el"
 ;;;;;;  "org-mode/contrib/lisp/ob-tcl.el" "org-mode/contrib/lisp/org-bibtex-extras.el"
@@ -5572,10 +5705,11 @@ See `yas-minor-mode' for more information on Yas minor mode.
 ;;;;;;  "s/s.el" "smartparens/smartparens-config.el" "smartparens/smartparens-html.el"
 ;;;;;;  "smartparens/smartparens-latex.el" "smartparens/smartparens-lua.el"
 ;;;;;;  "smartparens/smartparens-pkg.el" "smartparens/smartparens-ruby.el"
+;;;;;;  "soap-client/jira2.el" "soap-client/soap-client.el" "soap-client/soap-inspect.el"
 ;;;;;;  "solarized-emacs/solarized-dark-theme.el" "solarized-emacs/solarized-light-theme.el"
 ;;;;;;  "solarized-emacs/solarized-theme-pkg.el" "solarized-emacs/solarized-theme-utils.el"
 ;;;;;;  "solarized-emacs/solarized-theme.el" "yasnippet/yasnippet-debug.el"
-;;;;;;  "yasnippet/yasnippet-tests.el") (21582 24460 879645 0))
+;;;;;;  "yasnippet/yasnippet-tests.el") (21584 4795 698862 0))
 
 ;;;***
 
