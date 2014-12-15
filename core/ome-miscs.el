@@ -63,13 +63,6 @@
 
 (global-visual-line-mode t)
 
-(defun ome-projectile-setup ()
-  (projectile-global-mode)
-  (setq projectile-enable-caching t)
-  (global-set-key (kbd "C-x c h") 'helm-projectile))
-
-(ome-install 'projectile)
-
 (defun ome-create-newline-and-enter-sexp (&rest _ignored)
   "Open a new brace or bracket expression, with relevant newlines and indent. "
   (previous-line)
@@ -212,8 +205,6 @@
   (eval-after-load "helm"
     '(diminish 'helm-mode))
 
-  (eval-after-load "projectile"
-    '(diminish 'projectile-mode "Prjl"))
 
   (eval-after-load "undo-tree"
     '(diminish 'undo-tree-mode))

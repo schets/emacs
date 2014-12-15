@@ -1,11 +1,8 @@
-((ac-cider status "installed" recipe
-	   (:name ac-cider :auto-generated t :type elpa :description "Clojure auto-complete sources using CIDER" :repo nil :depends
-		  (cider auto-complete cl-lib)))
+((ac-company status "installed" recipe
+	     (:name ac-company :website "http://github.com/buzztaiki/auto-complete" :description "company backend for auto-complete" :type http :url "https://raw.github.com/buzztaiki/auto-complete/master/ac-company.el" :depends
+		    (auto-complete company-mode)))
  (ace-jump-mode status "installed" recipe
-		(:name ace-jump-mode :after
-		       (progn
-			 (ome-ace-jump-mode-setup))
-		       :website "https://github.com/winterTTr/ace-jump-mode/wiki" :description "A quick cursor location minor mode for emacs." :type github :pkgname "winterTTr/ace-jump-mode"))
+		(:name ace-jump-mode :website "https://github.com/winterTTr/ace-jump-mode/wiki" :description "A quick cursor location minor mode for emacs." :type github :pkgname "winterTTr/ace-jump-mode"))
  (auto-complete status "installed" recipe
 		(:name auto-complete :website "https://github.com/auto-complete/auto-complete" :description "The most intelligent auto-completion extension." :type github :pkgname "auto-complete/auto-complete" :depends
 		       (popup fuzzy)
@@ -19,10 +16,7 @@
  (buffer-move status "installed" recipe
 	      (:name buffer-move :description "Swap buffers without typing C-x b on each window" :type emacswiki :features buffer-move))
  (cider status "installed" recipe
-	(:name cider :after
-	       (progn
-		 (ome-cider-setup))
-	       :description "CIDER is a Clojure IDE and REPL." :type github :pkgname "clojure-emacs/cider" :depends
+	(:name cider :description "CIDER is a Clojure IDE and REPL." :type github :pkgname "clojure-emacs/cider" :depends
 	       (dash queue clojure-mode pkg-info)))
  (cl-lib status "installed" recipe
 	 (:name cl-lib :builtin "24.3" :type elpa :description "Properly prefixed CL functions and macros" :url "http://elpa.gnu.org/packages/cl-lib.html"))
@@ -30,6 +24,8 @@
 	       (:name clojure-mode :website "https://github.com/clojure-emacs/clojure-mode" :description "Emacs support for the Clojure language." :type github :pkgname "clojure-emacs/clojure-mode"))
  (cmake-mode status "installed" recipe
 	     (:name cmake-mode :website "http://www.itk.org/Wiki/CMake/Editors/Emacs" :description "Provides syntax highlighting and indentation for CMakeLists.txt and *.cmake source files." :type http :url "http://cmake.org/gitweb?p=cmake.git;a=blob_plain;hb=master;f=Auxiliary/cmake-mode.el"))
+ (company-mode status "installed" recipe
+	       (:name company-mode :website "http://company-mode.github.io/" :description "Modular in-buffer completion framework for Emacs" :type github :pkgname "company-mode/company-mode"))
  (ctable status "installed" recipe
 	 (:name ctable :description "Table Component for elisp" :type github :pkgname "kiwanami/emacs-ctable"))
  (dash status "installed" recipe
@@ -37,19 +33,13 @@
  (deferred status "installed" recipe
    (:name deferred :description "Simple asynchronous functions for emacs lisp." :type github :pkgname "kiwanami/emacs-deferred"))
  (diminish status "installed" recipe
-	   (:name diminish :after
-		  (progn
-		    (ome-diminish-setup))
-		  :description "An Emacs package that diminishes the amount of space taken on the mode line by the names of minor modes." :type http :url "http://www.eskimo.com/~seldon/diminish.el" :features diminish))
+	   (:name diminish :description "An Emacs package that diminishes the amount of space taken on the mode line by the names of minor modes." :type http :url "http://www.eskimo.com/~seldon/diminish.el" :features diminish))
  (el-get status "installed" recipe
 	 (:name el-get :website "https://github.com/dimitri/el-get#readme" :description "Manage the external elisp bits and pieces you depend upon." :type github :branch "master" :pkgname "dimitri/el-get" :info "." :compile
 		("el-get.*\\.el$" "methods/")
 		:load "el-get.el"))
  (elpy status "installed" recipe
-       (:name elpy :after
-	      (progn
-		(ome-elpy-setup))
-	      :website "https://github.com/jorgenschaefer/elpy" :description "Emacs Python Development Environment" :type github :pkgname "jorgenschaefer/elpy" :checkout "v1.3.0" :shallow nil :post-init
+       (:name elpy :website "https://github.com/jorgenschaefer/elpy" :description "Emacs Python Development Environment" :type github :pkgname "jorgenschaefer/elpy" :checkout "v1.3.0" :shallow nil :post-init
 	      (el-get-envpath-prepend "PYTHONPATH" default-directory)
 	      :depends
 	      (auto-complete yasnippet highlight-indentation find-file-in-project idomenu iedit nose jedi rope pyvenv)))
@@ -59,10 +49,7 @@
  (epl status "installed" recipe
       (:name epl :description "EPL provides a convenient high-level API for various package.el versions, and aims to overcome its most striking idiocies." :type github :pkgname "cask/epl"))
  (evil status "installed" recipe
-       (:name evil :after
-	      (progn
-		(ome-evil-setup))
-	      :website "http://gitorious.org/evil/pages/Home" :description "Evil is an extensible vi layer for Emacs. It\n       emulates the main features of Vim, and provides facilities\n       for writing custom extensions." :type git :url "git://gitorious.org/evil/evil.git" :features evil :depends
+       (:name evil :website "http://gitorious.org/evil/pages/Home" :description "Evil is an extensible vi layer for Emacs. It\n       emulates the main features of Vim, and provides facilities\n       for writing custom extensions." :type git :url "git://gitorious.org/evil/evil.git" :features evil :depends
 	      (undo-tree goto-chg)
 	      :build
 	      (("make" "all" "info"))
@@ -73,19 +60,13 @@
 		 "all" "info"))
 	      :info "doc"))
  (evil-leader status "installed" recipe
-	      (:name evil-leader :after
-		     (progn
-		       (ome-evil-leader-setup))
-		     :website "http://github.com/cofi/evil-leader" :description "Add <leader> shortcuts to Evil, the extensible vim\n       emulation layer" :type github :pkgname "cofi/evil-leader" :features evil-leader :depends evil))
+	      (:name evil-leader :website "http://github.com/cofi/evil-leader" :description "Add <leader> shortcuts to Evil, the extensible vim\n       emulation layer" :type github :pkgname "cofi/evil-leader" :features evil-leader :depends evil))
  (evil-surround status "installed" recipe
 		(:name evil-surround :website "http://github.com/timcharper/evil-surround" :description "Emulate Tim Pope's surround.vim in evil, the extensible vim\n       emulation layer for emacs" :type github :pkgname "timcharper/evil-surround" :features evil-surround :post-init
 		       (global-evil-surround-mode 1)
 		       :depends evil))
  (expand-region status "installed" recipe
-		(:name expand-region :after
-		       (progn
-			 (ome-expand-region-setup))
-		       :type github :pkgname "magnars/expand-region.el" :description "Expand region increases the selected region by semantic units. Just keep pressing the key until it selects what you want." :website "https://github.com/magnars/expand-region.el#readme"))
+		(:name expand-region :type github :pkgname "magnars/expand-region.el" :description "Expand region increases the selected region by semantic units. Just keep pressing the key until it selects what you want." :website "https://github.com/magnars/expand-region.el#readme"))
  (f status "installed" recipe
     (:name f :website "https://github.com/rejeep/f.el" :description "Modern API for working with files and directories in Emacs" :depends
 	   (s dash)
@@ -97,6 +78,12 @@
 		  '(("makeinfo" "-o" "doc/flycheck.info" "doc/flycheck.texi"))
 		  :info "./doc" :depends
 		  (s dash cl-lib f pkg-info)))
+ (flycheck-haskell status "installed" recipe
+		   (:name flycheck-haskell :description "Flycheck: Cabal projects and sandboxes." :type github :pkgname "flycheck/flycheck-haskell" :depends
+			  (flycheck haskell-mode dash f)
+			  :prepare
+			  (eval-after-load 'flycheck
+			    '(add-hook 'flycheck-mode-hook #'flycheck-haskell-setup))))
  (fringe-helper status "installed" recipe
 		(:name fringe-helper :description "Helper functions for fringe bitmaps." :type github :pkgname "nschum/fringe-helper.el"))
  (fuzzy status "installed" recipe
@@ -104,15 +91,21 @@
  (git-gutter status "installed" recipe
 	     (:name git-gutter :description "Emacs port of GitGutter Sublime Text 2 Plugin" :website "https://github.com/syohex/emacs-git-gutter" :type github :pkgname "syohex/emacs-git-gutter"))
  (git-gutter-fringe status "installed" recipe
-		    (:name git-gutter-fringe :after
-			   (progn
-			     (ome-git-gutter-fringe-setup))
-			   :type github :pkgname "syohex/emacs-git-gutter-fringe" :description "Fringe version of git-gutter.el" :depends
+		    (:name git-gutter-fringe :type github :pkgname "syohex/emacs-git-gutter-fringe" :description "Fringe version of git-gutter.el" :depends
 			   (git-gutter fringe-helper)))
  (git-modes status "installed" recipe
 	    (:name git-modes :description "GNU Emacs modes for various Git-related files" :type github :pkgname "magit/git-modes"))
  (goto-chg status "installed" recipe
 	   (:name goto-chg :description "Goto the point of the most recent edit in the buffer." :type emacswiki :features goto-chg))
+ (haskell-mode status "installed" recipe
+	       (:name haskell-mode :description "A Haskell editing mode" :type github :pkgname "haskell/haskell-mode" :info "." :build
+		      `(("make" ,(format "EMACS=%s" el-get-emacs)
+			 "all"))
+		      :post-init
+		      (progn
+			(require 'haskell-mode-autoloads)
+			(add-hook 'haskell-mode-hook 'turn-on-haskell-doc-mode)
+			(add-hook 'haskell-mode-hook 'turn-on-haskell-indentation))))
  (helm status "installed" recipe
        (:name helm :description "Emacs incremental and narrowing framework" :type github :pkgname "emacs-helm/helm" :build
 	      ("make")
@@ -138,10 +131,7 @@
  (linum-relative status "installed" recipe
 		 (:name linum-relative :type emacswiki :description "Display relative line number in the left margin" :features linum-relative))
  (magit status "installed" recipe
-	(:name magit :after
-	       (progn
-		 (ome-magit-setup))
-	       :website "https://github.com/magit/magit#readme" :description "It's Magit! An Emacs mode for Git." :type github :pkgname "magit/magit" :depends
+	(:name magit :website "https://github.com/magit/magit#readme" :description "It's Magit! An Emacs mode for Git." :type github :pkgname "magit/magit" :depends
 	       (cl-lib git-modes)
 	       :info "." :compile "magit.*.el\\'" :build
 	       `(("make" "docs"))
@@ -153,6 +143,10 @@
 		(:name markdown-mode :description "Major mode to edit Markdown files in Emacs" :website "http://jblevins.org/projects/markdown-mode/" :type git :url "git://jblevins.org/git/markdown-mode.git" :prepare
 		       (add-to-list 'auto-mode-alist
 				    '("\\.\\(md\\|mdown\\|markdown\\)\\'" . markdown-mode))))
+ (mic-paren status "installed" recipe
+	    (:name mic-paren :description "Advanced highlighting of matching parentheses." :type emacswiki))
+ (multiple-cursors status "installed" recipe
+		   (:name multiple-cursors :description "An experiment in adding multiple cursors to emacs" :type github :pkgname "magnars/multiple-cursors.el"))
  (nose status "installed" recipe
        (:type github :pkgname "emacsmirror/nose" :name nose :website "https://bitbucket.org/durin42/nosemacs" :description "Emacs extension to provide easy nosetest integration." :type emacsmirror :pkgname nose))
  (org-jira status "installed" recipe
@@ -215,12 +209,6 @@
 	    (:name powerline :website "https://github.com/milkypostman/powerline" :depends
 		   (cl-lib)
 		   :description "Powerline for Emacs" :type github :pkgname "milkypostman/powerline" :load-path "." :features powerline))
- (projectile status "installed" recipe
-	     (:name projectile :after
-		    (progn
-		      (ome-projectile-setup))
-		    :description "Project navigation and management library for Emacs." :type github :pkgname "bbatsov/projectile" :depends
-		    (dash s pkg-info)))
  (puppet-mode status "installed" recipe
 	      (:name puppet-mode :description "A simple mode for editing puppet manifests" :type github :pkgname "lunaryorn/puppet-mode" :website "https://github.com/lunaryorn/puppet-mode" :prepare
 		     (progn
@@ -238,21 +226,17 @@
  (quickrun status "installed" recipe
 	   (:name quickrun :description "Run commands quickly" :website "https://github.com/syohex/emacs-quickrun" :type github :pkgname "syohex/emacs-quickrun" :features "quickrun"))
  (rainbow-delimiters status "installed" recipe
-		     (:name rainbow-delimiters :after
-			    (progn
-			      (ome-rainbow-delimiters-setup))
-			    :website "https://github.com/jlr/rainbow-delimiters#readme" :description "Color nested parentheses, brackets, and braces according to their depth." :type github :pkgname "jlr/rainbow-delimiters"))
+		     (:name rainbow-delimiters :website "https://github.com/jlr/rainbow-delimiters#readme" :description "Color nested parentheses, brackets, and braces according to their depth." :type github :pkgname "jlr/rainbow-delimiters"))
  (rope status "installed" recipe
        (:name rope :description "A python refactoring library" :post-init
 	      (el-get-envpath-prepend "PYTHONPATH" default-directory)
 	      :type git :url "https://github.com/python-rope/rope.git"))
  (s status "installed" recipe
     (:name s :description "The long lost Emacs string manipulation library." :type github :pkgname "magnars/s.el"))
+ (smart-tabs-mode status "installed" recipe
+		  (:name smart-tabs-mode :auto-generated t :type elpa :description "Intelligently indent with tabs, align with spaces!" :repo nil))
  (smartparens status "installed" recipe
-	      (:name smartparens :after
-		     (progn
-		       (ome-smartparens-setup))
-		     :description "Autoinsert pairs of defined brackets and wrap regions" :type github :pkgname "Fuco1/smartparens" :depends dash))
+	      (:name smartparens :description "Autoinsert pairs of defined brackets and wrap regions" :type github :pkgname "Fuco1/smartparens" :depends dash))
  (soap-client status "installed" recipe
 	      (:name soap-client :website "http://code.google.com/p/emacs-soap-client/" :description "The soap-client.el library provides access to SOAP web-services from Emacs. It supports encoding/decoding SOAP messages based on WSDL descriptors." :type hg :url "https://code.google.com/p/emacs-soap-client/"))
  (solarized-emacs status "installed" recipe

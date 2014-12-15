@@ -3,35 +3,6 @@
 ;;; Code:
 
 
-;;;### (autoloads nil "ac-cider/ac-cider" "ac-cider/ac-cider.el"
-;;;;;;  (21583 4849 0 0))
-;;; Generated autoloads from ac-cider/ac-cider.el
-
-(defface ac-cider-candidate-face '((t (:inherit ac-candidate-face))) "\
-Face for nrepl candidates." :group (quote auto-complete))
-
-(defface ac-cider-selection-face '((t (:inherit ac-selection-face))) "\
-Face for the nrepl selected candidate." :group (quote auto-complete))
-
-(defconst ac-cider-source-defaults '((available . ac-cider-available-p) (candidate-face . ac-cider-candidate-face) (selection-face . ac-cider-selection-face) (prefix . cider-completion-symbol-start-pos) (match . ac-cider-match-fuzzy) (document . ac-cider-documentation) (cache)) "\
-Defaults common to the various completion sources.")
-
-(defvar ac-source-cider-everything (append '((candidates . ac-cider-candidates-everything) (symbol . "v")) ac-cider-source-defaults) "\
-Auto-complete source for CIDER buffers.")
-
-(autoload 'ac-cider-setup "ac-cider/ac-cider" "\
-Add the CIDER completion source to the front of `ac-sources'.
-This affects only the current buffer.
-
-\(fn)" t nil)
-
-(autoload 'ac-cider-popup-doc "ac-cider/ac-cider" "\
-A popup alternative to `cider-doc'.
-
-\(fn)" t nil)
-
-;;;***
-
 ;;;### (autoloads nil "ace-jump-mode/ace-jump-mode" "ace-jump-mode/ace-jump-mode.el"
 ;;;;;;  (21581 48513 0 0))
 ;;; Generated autoloads from ace-jump-mode/ace-jump-mode.el
@@ -166,7 +137,7 @@ one, an error is signaled.
 
 ;;;***
 
-;;;### (autoloads nil "cider/cider" "cider/cider.el" (21583 4934
+;;;### (autoloads nil "cider/cider" "cider/cider.el" (21635 29369
 ;;;;;;  0 0))
 ;;; Generated autoloads from cider/cider.el
 
@@ -192,8 +163,26 @@ Create REPL buffer and start an nREPL client connection.
 
 ;;;***
 
+;;;### (autoloads nil "cider/cider-apropos" "cider/cider-apropos.el"
+;;;;;;  (21635 29369 0 0))
+;;; Generated autoloads from cider/cider-apropos.el
+
+(autoload 'cider-apropos "cider/cider-apropos" "\
+Show all symbols whose names match QUERY, a regular expression.
+The search may be limited to the namespace NS, and may optionally search doc
+strings, include private vars, and be case sensitive.
+
+\(fn QUERY &optional NS DOCS-P PRIVATES-P CASE-SENSITIVE-P)" t nil)
+
+(autoload 'cider-apropos-documentation "cider/cider-apropos" "\
+Shortcut for (cider-apropos <query> nil t).
+
+\(fn)" t nil)
+
+;;;***
+
 ;;;### (autoloads nil "cider/cider-browse-ns" "cider/cider-browse-ns.el"
-;;;;;;  (21583 4934 0 0))
+;;;;;;  (21635 29369 0 0))
 ;;; Generated autoloads from cider/cider-browse-ns.el
 
 (autoload 'cider-browse-ns "cider/cider-browse-ns" "\
@@ -209,7 +198,7 @@ List all loaded namespaces in BUFFER.
 ;;;***
 
 ;;;### (autoloads nil "cider/cider-classpath" "cider/cider-classpath.el"
-;;;;;;  (21583 4934 0 0))
+;;;;;;  (21635 29369 0 0))
 ;;; Generated autoloads from cider/cider-classpath.el
 
 (autoload 'cider-classpath "cider/cider-classpath" "\
@@ -224,8 +213,24 @@ Open a classpath entry.
 
 ;;;***
 
+;;;### (autoloads nil "cider/cider-grimoire" "cider/cider-grimoire.el"
+;;;;;;  (21635 29369 0 0))
+;;; Generated autoloads from cider/cider-grimoire.el
+
+(autoload 'cider-grimoire-web "cider/cider-grimoire" "\
+Open the grimoire documentation for QUERY in the default web browser.
+
+\(fn QUERY)" t nil)
+
+(autoload 'cider-grimoire "cider/cider-grimoire" "\
+Open the grimoire documentation for QUERY in a popup buffer.
+
+\(fn QUERY)" t nil)
+
+;;;***
+
 ;;;### (autoloads nil "cider/cider-inspector" "cider/cider-inspector.el"
-;;;;;;  (21583 4934 0 0))
+;;;;;;  (21635 29369 0 0))
 ;;; Generated autoloads from cider/cider-inspector.el
 
 (autoload 'cider-inspect "cider/cider-inspector" "\
@@ -236,7 +241,7 @@ Eval the string EXPRESSION and inspect the result.
 ;;;***
 
 ;;;### (autoloads nil "cider/cider-macroexpansion" "cider/cider-macroexpansion.el"
-;;;;;;  (21583 4934 0 0))
+;;;;;;  (21635 29369 0 0))
 ;;; Generated autoloads from cider/cider-macroexpansion.el
 
 (autoload 'cider-macroexpand-1 "cider/cider-macroexpansion" "\
@@ -253,8 +258,8 @@ Invoke 'clojure.walk/macroexpand-all' on the expression preceding point.
 
 ;;;***
 
-;;;### (autoloads nil "cider/cider-mode" "cider/cider-mode.el" (21583
-;;;;;;  4934 0 0))
+;;;### (autoloads nil "cider/cider-mode" "cider/cider-mode.el" (21635
+;;;;;;  29369 0 0))
 ;;; Generated autoloads from cider/cider-mode.el
 
 (defvar cider-mode-line '(:eval (format " cider[%s]" (cider-current-ns))) "\
@@ -281,7 +286,7 @@ Minor mode for REPL interaction from a Clojure buffer.
 ;;;***
 
 ;;;### (autoloads nil "cider/cider-scratch" "cider/cider-scratch.el"
-;;;;;;  (21583 4934 0 0))
+;;;;;;  (21635 29369 0 0))
 ;;; Generated autoloads from cider/cider-scratch.el
 
 (autoload 'cider-scratch "cider/cider-scratch" "\
@@ -292,7 +297,7 @@ Create a scratch buffer.
 ;;;***
 
 ;;;### (autoloads nil "cider/cider-selector" "cider/cider-selector.el"
-;;;;;;  (21583 4934 0 0))
+;;;;;;  (21635 29369 0 0))
 ;;; Generated autoloads from cider/cider-selector.el
 
 (autoload 'cider-selector "cider/cider-selector" "\
@@ -308,7 +313,7 @@ See `def-cider-selector-method' for defining new methods.
 ;;;***
 
 ;;;### (autoloads nil "clojure-mode/clojure-mode" "clojure-mode/clojure-mode.el"
-;;;;;;  (21581 48937 0 0))
+;;;;;;  (21635 29353 0 0))
 ;;; Generated autoloads from clojure-mode/clojure-mode.el
 
 (autoload 'clojure-mode "clojure-mode/clojure-mode" "\
@@ -319,29 +324,6 @@ Major mode for editing Clojure code.
 \(fn)" t nil)
 
 (add-to-list 'auto-mode-alist '("\\.\\(clj[sx]?\\|dtm\\|edn\\)\\'" . clojure-mode))
-
-;;;***
-
-;;;### (autoloads nil "clojure-mode/clojure-test-mode" "clojure-mode/clojure-test-mode.el"
-;;;;;;  (21581 48937 0 0))
-;;; Generated autoloads from clojure-mode/clojure-test-mode.el
-
-(autoload 'clojure-test-mode "clojure-mode/clojure-test-mode" "\
-A minor mode for running Clojure tests.
-
-\\{clojure-test-mode-map}
-
-\(fn &optional ARG)" t nil)
-
-(autoload 'clojure-find-clojure-test "clojure-mode/clojure-test-mode" "\
-
-
-\(fn)" nil nil)
-
-(defun clojure-test-maybe-enable nil "\
-Enable clojure-test-mode if the current buffer contains a \"clojure.test\" bit in it." (when (clojure-find-clojure-test) (save-window-excursion (clojure-test-mode t))))
-
-(add-hook 'clojure-mode-hook 'clojure-test-maybe-enable)
 
 ;;;***
 
@@ -393,6 +375,283 @@ Queries for any of the four available help topics and prints out the approriate 
 (add-to-list 'auto-mode-alist '("CMakeLists\\.txt\\'" . cmake-mode))
 
 (add-to-list 'auto-mode-alist '("\\.cmake\\'" . cmake-mode))
+
+;;;***
+
+;;;### (autoloads nil "company-mode/company" "company-mode/company.el"
+;;;;;;  (21635 29859 0 0))
+;;; Generated autoloads from company-mode/company.el
+
+(autoload 'company-mode "company-mode/company" "\
+\"complete anything\"; is an in-buffer completion framework.
+Completion starts automatically, depending on the values
+`company-idle-delay' and `company-minimum-prefix-length'.
+
+Completion can be controlled with the commands:
+`company-complete-common', `company-complete-selection', `company-complete',
+`company-select-next', `company-select-previous'.  If these commands are
+called before `company-idle-delay', completion will also start.
+
+Completions can be searched with `company-search-candidates' or
+`company-filter-candidates'.  These can be used while completion is
+inactive, as well.
+
+The completion data is retrieved using `company-backends' and displayed
+using `company-frontends'.  If you want to start a specific back-end, call
+it interactively or use `company-begin-backend'.
+
+regular keymap (`company-mode-map'):
+
+\\{company-mode-map}
+keymap during active completions (`company-active-map'):
+
+\\{company-active-map}
+
+\(fn &optional ARG)" t nil)
+
+(defvar global-company-mode nil "\
+Non-nil if Global-Company mode is enabled.
+See the command `global-company-mode' for a description of this minor mode.
+Setting this variable directly does not take effect;
+either customize it (see the info node `Easy Customization')
+or call the function `global-company-mode'.")
+
+(custom-autoload 'global-company-mode "company-mode/company" nil)
+
+(autoload 'global-company-mode "company-mode/company" "\
+Toggle Company mode in all buffers.
+With prefix ARG, enable Global-Company mode if ARG is positive;
+otherwise, disable it.  If called from Lisp, enable the mode if
+ARG is omitted or nil.
+
+Company mode is enabled in all buffers where
+`company-mode-on' would do it.
+See `company-mode' for more information on Company mode.
+
+\(fn &optional ARG)" t nil)
+
+;;;***
+
+;;;### (autoloads nil "company-mode/company-abbrev" "company-mode/company-abbrev.el"
+;;;;;;  (21635 29859 0 0))
+;;; Generated autoloads from company-mode/company-abbrev.el
+
+(autoload 'company-abbrev "company-mode/company-abbrev" "\
+`company-mode' completion back-end for abbrev.
+
+\(fn COMMAND &optional ARG &rest IGNORED)" t nil)
+
+;;;***
+
+;;;### (autoloads nil "company-mode/company-bbdb" "company-mode/company-bbdb.el"
+;;;;;;  (21635 29859 0 0))
+;;; Generated autoloads from company-mode/company-bbdb.el
+
+(autoload 'company-bbdb "company-mode/company-bbdb" "\
+`company-mode' completion back-end for `bbdb'.
+
+\(fn COMMAND &optional ARG &rest IGNORE)" t nil)
+
+;;;***
+
+;;;### (autoloads nil "company-mode/company-css" "company-mode/company-css.el"
+;;;;;;  (21635 29859 0 0))
+;;; Generated autoloads from company-mode/company-css.el
+
+(autoload 'company-css "company-mode/company-css" "\
+`company-mode' completion back-end for `css-mode'.
+
+\(fn COMMAND &optional ARG &rest IGNORED)" t nil)
+
+;;;***
+
+;;;### (autoloads nil "company-mode/company-dabbrev" "company-mode/company-dabbrev.el"
+;;;;;;  (21635 29859 0 0))
+;;; Generated autoloads from company-mode/company-dabbrev.el
+
+(autoload 'company-dabbrev "company-mode/company-dabbrev" "\
+dabbrev-like `company-mode' completion back-end.
+
+\(fn COMMAND &optional ARG &rest IGNORED)" t nil)
+
+;;;***
+
+;;;### (autoloads nil "company-mode/company-dabbrev-code" "company-mode/company-dabbrev-code.el"
+;;;;;;  (21635 29859 0 0))
+;;; Generated autoloads from company-mode/company-dabbrev-code.el
+
+(autoload 'company-dabbrev-code "company-mode/company-dabbrev-code" "\
+dabbrev-like `company-mode' back-end for code.
+The back-end looks for all symbols in the current buffer that aren't in
+comments or strings.
+
+\(fn COMMAND &optional ARG &rest IGNORED)" t nil)
+
+;;;***
+
+;;;### (autoloads nil "company-mode/company-elisp" "company-mode/company-elisp.el"
+;;;;;;  (21635 29859 0 0))
+;;; Generated autoloads from company-mode/company-elisp.el
+
+(autoload 'company-elisp "company-mode/company-elisp" "\
+`company-mode' completion back-end for Emacs Lisp.
+
+\(fn COMMAND &optional ARG &rest IGNORED)" t nil)
+
+;;;***
+
+;;;### (autoloads nil "company-mode/company-etags" "company-mode/company-etags.el"
+;;;;;;  (21635 29859 0 0))
+;;; Generated autoloads from company-mode/company-etags.el
+
+(autoload 'company-etags "company-mode/company-etags" "\
+`company-mode' completion back-end for etags.
+
+\(fn COMMAND &optional ARG &rest IGNORED)" t nil)
+
+;;;***
+
+;;;### (autoloads nil "company-mode/company-files" "company-mode/company-files.el"
+;;;;;;  (21635 29859 0 0))
+;;; Generated autoloads from company-mode/company-files.el
+
+(autoload 'company-files "company-mode/company-files" "\
+`company-mode' completion back-end existing file names.
+Completions works for proper absolute and relative files paths.
+File paths with spaces are only supported inside strings.
+
+\(fn COMMAND &optional ARG &rest IGNORED)" t nil)
+
+;;;***
+
+;;;### (autoloads nil "company-mode/company-gtags" "company-mode/company-gtags.el"
+;;;;;;  (21635 29859 0 0))
+;;; Generated autoloads from company-mode/company-gtags.el
+
+(autoload 'company-gtags "company-mode/company-gtags" "\
+`company-mode' completion back-end for GNU Global.
+
+\(fn COMMAND &optional ARG &rest IGNORED)" t nil)
+
+;;;***
+
+;;;### (autoloads nil "company-mode/company-ispell" "company-mode/company-ispell.el"
+;;;;;;  (21635 29859 0 0))
+;;; Generated autoloads from company-mode/company-ispell.el
+
+(autoload 'company-ispell "company-mode/company-ispell" "\
+`company-mode' completion back-end using Ispell.
+
+\(fn COMMAND &optional ARG &rest IGNORED)" t nil)
+
+;;;***
+
+;;;### (autoloads nil "company-mode/company-keywords" "company-mode/company-keywords.el"
+;;;;;;  (21635 29859 0 0))
+;;; Generated autoloads from company-mode/company-keywords.el
+
+(autoload 'company-keywords "company-mode/company-keywords" "\
+`company-mode' back-end for programming language keywords.
+
+\(fn COMMAND &optional ARG &rest IGNORED)" t nil)
+
+;;;***
+
+;;;### (autoloads nil "company-mode/company-nxml" "company-mode/company-nxml.el"
+;;;;;;  (21635 29859 0 0))
+;;; Generated autoloads from company-mode/company-nxml.el
+
+(autoload 'company-nxml "company-mode/company-nxml" "\
+`company-mode' completion back-end for `nxml-mode'.
+
+\(fn COMMAND &optional ARG &rest IGNORED)" t nil)
+
+;;;***
+
+;;;### (autoloads nil "company-mode/company-oddmuse" "company-mode/company-oddmuse.el"
+;;;;;;  (21635 29859 0 0))
+;;; Generated autoloads from company-mode/company-oddmuse.el
+
+(autoload 'company-oddmuse "company-mode/company-oddmuse" "\
+`company-mode' completion back-end for `oddmuse-mode'.
+
+\(fn COMMAND &optional ARG &rest IGNORED)" t nil)
+
+;;;***
+
+;;;### (autoloads nil "company-mode/company-pysmell" "company-mode/company-pysmell.el"
+;;;;;;  (21635 29859 0 0))
+;;; Generated autoloads from company-mode/company-pysmell.el
+
+(autoload 'company-pysmell "company-mode/company-pysmell" "\
+`company-mode' completion back-end for pysmell.
+This requires pysmell.el and pymacs.el.
+
+\(fn COMMAND &optional ARG &rest IGNORED)" t nil)
+
+;;;***
+
+;;;### (autoloads nil "company-mode/company-semantic" "company-mode/company-semantic.el"
+;;;;;;  (21635 29859 0 0))
+;;; Generated autoloads from company-mode/company-semantic.el
+
+(autoload 'company-semantic "company-mode/company-semantic" "\
+`company-mode' completion back-end using CEDET Semantic.
+
+\(fn COMMAND &optional ARG &rest IGNORED)" t nil)
+
+;;;***
+
+;;;### (autoloads nil "company-mode/company-tempo" "company-mode/company-tempo.el"
+;;;;;;  (21635 29859 0 0))
+;;; Generated autoloads from company-mode/company-tempo.el
+
+(autoload 'company-tempo "company-mode/company-tempo" "\
+`company-mode' completion back-end for tempo.
+
+\(fn COMMAND &optional ARG &rest IGNORED)" t nil)
+
+;;;***
+
+;;;### (autoloads nil "company-mode/company-xcode" "company-mode/company-xcode.el"
+;;;;;;  (21635 29859 0 0))
+;;; Generated autoloads from company-mode/company-xcode.el
+
+(autoload 'company-xcode "company-mode/company-xcode" "\
+`company-mode' completion back-end for Xcode projects.
+
+\(fn COMMAND &optional ARG &rest IGNORED)" t nil)
+
+;;;***
+
+;;;### (autoloads nil "company-mode/company-yasnippet" "company-mode/company-yasnippet.el"
+;;;;;;  (21635 29859 0 0))
+;;; Generated autoloads from company-mode/company-yasnippet.el
+
+(autoload 'company-yasnippet "company-mode/company-yasnippet" "\
+`company-mode' back-end for `yasnippet'.
+
+This back-end should be used with care, because as long as there are
+snippets defined for the current major mode, this back-end will always
+shadow back-ends that come after it.  Recommended usages:
+
+* In a buffer-local value of `company-backends', grouped with a back-end or
+  several that provide actual text completions.
+
+  (add-hook 'js-mode-hook
+            (lambda ()
+              (set (make-local-variable 'company-backends)
+                   '((company-dabbrev-code company-yasnippet)))))
+
+* After keyword `:with', grouped with other back-ends.
+
+  (push '(company-semantic :with company-yasnippet) company-backends)
+
+* Not in `company-backends', just bound to a key.
+
+  (global-set-key (kbd \"C-c y\") 'company-yasnippet)
+
+\(fn COMMAND &optional ARG &rest IGNORE)" t nil)
 
 ;;;***
 
@@ -719,6 +978,24 @@ setting the variable `ffip-project-root'.
 (put 'ffip-project-root-function 'safe-local-variable 'functionp)
 
 (put 'ffip-limit 'safe-local-variable 'integerp)
+
+;;;***
+
+;;;### (autoloads nil "flycheck-haskell/flycheck-haskell" "flycheck-haskell/flycheck-haskell.el"
+;;;;;;  (21613 27896 0 0))
+;;; Generated autoloads from flycheck-haskell/flycheck-haskell.el
+
+(autoload 'flycheck-haskell-setup "flycheck-haskell/flycheck-haskell" "\
+Setup Haskell support for Flycheck.
+
+If the current file is part of a Cabal project, configure
+Flycheck to take the module paths of the Cabal projects into
+account.
+
+Also search for Cabal sandboxes and add them to the module search
+path as well.
+
+\(fn)" nil nil)
 
 ;;;***
 
@@ -1055,6 +1332,725 @@ Go back to more recent changes after \\[goto-last-change] have been used.
 See `goto-last-change' for use of prefix argument.
 
 \(fn ARG)" t nil)
+
+;;;***
+
+;;;### (autoloads nil "haskell-mode/ghc-core" "haskell-mode/ghc-core.el"
+;;;;;;  (21613 27879 0 0))
+;;; Generated autoloads from haskell-mode/ghc-core.el
+
+(autoload 'ghc-core-create-core "haskell-mode/ghc-core" "\
+Compile and load the current buffer as tidy core.
+
+\(fn)" t nil)
+
+(add-to-list 'auto-mode-alist '("\\.hcr\\'" . ghc-core-mode))
+
+(autoload 'ghc-core-mode "haskell-mode/ghc-core" "\
+Major mode for GHC Core files.
+
+\(fn)" t nil)
+
+;;;***
+
+;;;### (autoloads nil "haskell-mode/haskell-align-imports" "haskell-mode/haskell-align-imports.el"
+;;;;;;  (21613 27879 0 0))
+;;; Generated autoloads from haskell-mode/haskell-align-imports.el
+
+(autoload 'haskell-align-imports "haskell-mode/haskell-align-imports" "\
+Align all the imports in the buffer.
+
+\(fn)" t nil)
+
+;;;***
+
+;;;### (autoloads nil "haskell-mode/haskell-c" "haskell-mode/haskell-c.el"
+;;;;;;  (21613 27879 0 0))
+;;; Generated autoloads from haskell-mode/haskell-c.el
+
+(add-to-list 'auto-mode-alist '("\\.hsc\\'" . haskell-c-mode))
+
+(autoload 'haskell-c-mode "haskell-mode/haskell-c" "\
+Major mode for Haskell FFI files.
+
+\(fn)" t nil)
+
+;;;***
+
+;;;### (autoloads nil "haskell-mode/haskell-cabal" "haskell-mode/haskell-cabal.el"
+;;;;;;  (21613 27879 0 0))
+;;; Generated autoloads from haskell-mode/haskell-cabal.el
+
+(add-to-list 'auto-mode-alist '("\\.cabal\\'" . haskell-cabal-mode))
+
+(autoload 'haskell-cabal-mode "haskell-mode/haskell-cabal" "\
+Major mode for Cabal package description files.
+
+\(fn)" t nil)
+
+(autoload 'haskell-cabal-get-dir "haskell-mode/haskell-cabal" "\
+Get the Cabal dir for a new project. Various ways of figuring this out,
+   and indeed just prompting the user. Do them all.
+
+\(fn)" nil nil)
+
+(autoload 'haskell-cabal-visit-file "haskell-mode/haskell-cabal" "\
+Locate and visit package description file for file visited by current buffer.
+This uses `haskell-cabal-find-file' to locate the closest
+\".cabal\" file and open it.  This command assumes a common Cabal
+project structure where the \".cabal\" file is in the top-folder
+of the project, and all files related to the project are in or
+below the top-folder.  If called with non-nil prefix argument
+OTHER-WINDOW use `find-file-other-window'.
+
+\(fn OTHER-WINDOW)" t nil)
+
+;;;***
+
+;;;### (autoloads nil "haskell-mode/haskell-compile" "haskell-mode/haskell-compile.el"
+;;;;;;  (21613 27879 0 0))
+;;; Generated autoloads from haskell-mode/haskell-compile.el
+
+(autoload 'haskell-compile "haskell-mode/haskell-compile" "\
+Compile the Haskell program including the current buffer.
+Tries to locate the next cabal description in current or parent
+folders via `haskell-cabal-find-dir' and if found, invoke
+`haskell-compile-cabal-build-command' from the cabal package root
+folder. If no cabal package could be detected,
+`haskell-compile-command' is used instead.
+
+If prefix argument EDIT-COMMAND is non-nil (and not a negative
+prefix `-'), `haskell-compile' prompts for custom compile
+command.
+
+If EDIT-COMMAND contains the negative prefix argument `-',
+`haskell-compile' calls the alternative command defined in
+`haskell-compile-cabal-build-alt-command' if a cabal package was
+detected.
+
+`haskell-compile' uses `haskell-compilation-mode' which is
+derived from `compilation-mode'. See Info
+node `(haskell-mode)compilation' for more details.
+
+\(fn &optional EDIT-COMMAND)" t nil)
+
+;;;***
+
+;;;### (autoloads nil "haskell-mode/haskell-decl-scan" "haskell-mode/haskell-decl-scan.el"
+;;;;;;  (21613 27879 0 0))
+;;; Generated autoloads from haskell-mode/haskell-decl-scan.el
+
+(autoload 'haskell-ds-create-imenu-index "haskell-mode/haskell-decl-scan" "\
+Function for finding `imenu' declarations in Haskell mode.
+Finds all declarations (classes, variables, imports, instances and
+datatypes) in a Haskell file for the `imenu' package.
+
+\(fn)" nil nil)
+
+(autoload 'turn-on-haskell-decl-scan "haskell-mode/haskell-decl-scan" "\
+Unconditionally activate `haskell-decl-scan-mode'.
+
+\(fn)" t nil)
+
+(autoload 'haskell-decl-scan-mode "haskell-mode/haskell-decl-scan" "\
+Toggle Haskell declaration scanning minor mode on or off.
+With a prefix argument ARG, enable minor mode if ARG is
+positive, and disable it otherwise.  If called from Lisp, enable
+the mode if ARG is omitted or nil, and toggle it if ARG is `toggle'.
+
+See also info node `(haskell-mode)haskell-decl-scan-mode' for
+more details about this minor mode.
+
+Top-level declarations are scanned and listed in the menu item
+\"Declarations\" (if enabled via option
+`haskell-decl-scan-add-to-menubar').  Selecting an item from this
+menu will take point to the start of the declaration.
+
+\\[beginning-of-defun] and \\[end-of-defun] move forward and backward to the start of a declaration.
+
+This may link with `haskell-doc-mode'.
+
+For non-literate and LaTeX-style literate scripts, we assume the
+common convention that top-level declarations start at the first
+column.  For Bird-style literate scripts, we assume the common
+convention that top-level declarations start at the third column,
+ie. after \"> \".
+
+Anything in `font-lock-comment-face' is not considered for a
+declaration.  Therefore, using Haskell font locking with comments
+coloured in `font-lock-comment-face' improves declaration scanning.
+
+Literate Haskell scripts are supported: If the value of
+`haskell-literate' (set automatically by `literate-haskell-mode')
+is `bird', a Bird-style literate script is assumed.  If it is nil
+or `tex', a non-literate or LaTeX-style literate script is
+assumed, respectively.
+
+Invokes `haskell-decl-scan-mode-hook' on activation.
+
+\(fn &optional ARG)" t nil)
+
+;;;***
+
+;;;### (autoloads nil "haskell-mode/haskell-doc" "haskell-mode/haskell-doc.el"
+;;;;;;  (21613 27879 0 0))
+;;; Generated autoloads from haskell-mode/haskell-doc.el
+
+(autoload 'haskell-doc-mode "haskell-mode/haskell-doc" "\
+Enter `haskell-doc-mode' for showing fct types in the echo area.
+See variable docstring.
+
+\(fn &optional ARG)" t nil)
+
+(defalias 'turn-on-haskell-doc-mode 'haskell-doc-mode)
+
+(defalias 'turn-on-haskell-doc 'haskell-doc-mode)
+
+(autoload 'haskell-doc-current-info "haskell-mode/haskell-doc" "\
+Return the info about symbol at point.
+Meant for `eldoc-documentation-function'.
+
+\(fn)" nil nil)
+
+(autoload 'haskell-doc-show-type "haskell-mode/haskell-doc" "\
+Show the type of the function near point.
+For the function under point, show the type in the echo area.
+This information is extracted from the `haskell-doc-prelude-types' alist
+of prelude functions and their types, or from the local functions in the
+current buffer.
+
+\(fn &optional SYM)" t nil)
+
+;;;***
+
+;;;### (autoloads nil "haskell-mode/haskell-font-lock" "haskell-mode/haskell-font-lock.el"
+;;;;;;  (21613 27879 0 0))
+;;; Generated autoloads from haskell-mode/haskell-font-lock.el
+
+(autoload 'haskell-font-lock-choose-keywords "haskell-mode/haskell-font-lock" "\
+
+
+\(fn)" nil nil)
+
+;;;***
+
+;;;### (autoloads nil "haskell-mode/haskell-indent" "haskell-mode/haskell-indent.el"
+;;;;;;  (21613 27879 0 0))
+;;; Generated autoloads from haskell-mode/haskell-indent.el
+
+(autoload 'turn-on-haskell-indent "haskell-mode/haskell-indent" "\
+Turn on ``intelligent'' Haskell indentation mode.
+
+\(fn)" nil nil)
+
+(autoload 'haskell-indent-mode "haskell-mode/haskell-indent" "\
+``Intelligent'' Haskell indentation mode.
+This deals with the layout rule of Haskell.
+\\[haskell-indent-cycle] starts the cycle which proposes new
+possibilities as long as the TAB key is pressed.  Any other key
+or mouse click terminates the cycle and is interpreted except for
+RET which merely exits the cycle.
+Other special keys are:
+    \\[haskell-indent-insert-equal]
+      inserts an =
+    \\[haskell-indent-insert-guard]
+      inserts an |
+    \\[haskell-indent-insert-otherwise]
+      inserts an | otherwise =
+these functions also align the guards and rhs of the current definition
+    \\[haskell-indent-insert-where]
+      inserts a where keyword
+    \\[haskell-indent-align-guards-and-rhs]
+      aligns the guards and rhs of the region
+    \\[haskell-indent-put-region-in-literate]
+      makes the region a piece of literate code in a literate script
+
+Invokes `haskell-indent-hook' if not nil.
+
+\(fn &optional ARG)" t nil)
+
+;;;***
+
+;;;### (autoloads nil "haskell-mode/haskell-indentation" "haskell-mode/haskell-indentation.el"
+;;;;;;  (21613 27879 0 0))
+;;; Generated autoloads from haskell-mode/haskell-indentation.el
+
+(autoload 'haskell-indentation-mode "haskell-mode/haskell-indentation" "\
+Haskell indentation mode that deals with the layout rule.
+It rebinds RET, DEL and BACKSPACE, so that indentations can be
+set and deleted as if they were real tabs.  It supports
+autofill-mode.
+
+\(fn &optional ARG)" t nil)
+
+(autoload 'turn-on-haskell-indentation "haskell-mode/haskell-indentation" "\
+Turn on the haskell-indentation minor mode.
+
+\(fn)" t nil)
+
+;;;***
+
+;;;### (autoloads nil "haskell-mode/haskell-interactive-mode" "haskell-mode/haskell-interactive-mode.el"
+;;;;;;  (21613 27879 0 0))
+;;; Generated autoloads from haskell-mode/haskell-interactive-mode.el
+
+(autoload 'haskell-interactive-mode "haskell-mode/haskell-interactive-mode" "\
+Interactive mode for Haskell.
+
+See Info node `(haskell-mode)haskell-interactive-mode' for more
+information.
+
+Key bindings:
+\\{haskell-interactive-mode-map}
+
+\(fn)" t nil)
+
+(autoload 'haskell-interactive-bring "haskell-mode/haskell-interactive-mode" "\
+Bring up the interactive mode for this session.
+
+\(fn)" t nil)
+
+(autoload 'haskell-interactive-switch "haskell-mode/haskell-interactive-mode" "\
+Switch to the interactive mode for this session.
+
+\(fn)" t nil)
+
+(autoload 'haskell-interactive-mode-echo "haskell-mode/haskell-interactive-mode" "\
+Echo a read only piece of text before the prompt.
+
+\(fn SESSION MESSAGE &optional MODE)" nil nil)
+
+(autoload 'haskell-interactive-mode-reset-error "haskell-mode/haskell-interactive-mode" "\
+Reset the error cursor position.
+
+\(fn SESSION)" t nil)
+
+;;;***
+
+;;;### (autoloads nil "haskell-mode/haskell-menu" "haskell-mode/haskell-menu.el"
+;;;;;;  (21613 27879 0 0))
+;;; Generated autoloads from haskell-mode/haskell-menu.el
+
+(autoload 'haskell-menu "haskell-mode/haskell-menu" "\
+Launch the Haskell sessions menu.
+
+\(fn)" t nil)
+
+;;;***
+
+;;;### (autoloads nil "haskell-mode/haskell-mode" "haskell-mode/haskell-mode.el"
+;;;;;;  (21613 27879 0 0))
+;;; Generated autoloads from haskell-mode/haskell-mode.el
+
+(autoload 'haskell-version "haskell-mode/haskell-mode" "\
+Show the `haskell-mode` version in the echo area.
+With prefix argument HERE, insert it at point.
+When FULL is non-nil, use a verbose version string.
+When MESSAGE is non-nil, display a message with the version.
+
+\(fn &optional HERE)" t nil)
+
+(autoload 'haskell-mode-view-news "haskell-mode/haskell-mode" "\
+Display information on recent changes to haskell-mode.
+
+\(fn)" t nil)
+
+(autoload 'haskell-customize "haskell-mode/haskell-mode" "\
+Browse the haskell customize sub-tree.
+This calls 'customize-browse' with haskell as argument and makes
+sure all haskell customize definitions have been loaded.
+
+\(fn)" t nil)
+
+(defvar haskell-mode-map (let ((map (make-sparse-keymap))) (define-key map (kbd "C-c C-.") 'haskell-mode-format-imports) (define-key map [remap delete-indentation] 'haskell-delete-indentation) (define-key map (kbd "C-c C-l") 'haskell-mode-enable-process-minor-mode) (define-key map (kbd "C-c C-b") 'haskell-mode-enable-process-minor-mode) (define-key map (kbd "C-c C-v") 'haskell-mode-enable-process-minor-mode) (define-key map (kbd "C-c C-t") 'haskell-mode-enable-process-minor-mode) (define-key map (kbd "C-c C-i") 'haskell-mode-enable-process-minor-mode) map) "\
+Keymap used in Haskell mode.")
+
+(autoload 'haskell-mode "haskell-mode/haskell-mode" "\
+Major mode for editing Haskell programs.
+
+See also Info node `(haskell-mode)Getting Started' for more
+information about this mode.
+
+\\<haskell-mode-map>
+Literate scripts are supported via `literate-haskell-mode'.
+The variable `haskell-literate' indicates the style of the script in the
+current buffer.  See the documentation on this variable for more details.
+
+Use `haskell-version' to find out what version of Haskell mode you are
+currently using.
+
+Additional Haskell mode modules can be hooked in via `haskell-mode-hook';
+see documentation for that variable for more details.
+
+\(fn)" t nil)
+
+(autoload 'literate-haskell-mode "haskell-mode/haskell-mode" "\
+As `haskell-mode' but for literate scripts.
+
+\(fn)" t nil)
+(add-to-list 'auto-mode-alist        '("\\.\\(?:[gh]s\\|hi\\)\\'" . haskell-mode))
+(add-to-list 'auto-mode-alist        '("\\.l[gh]s\\'" . literate-haskell-mode))
+(add-to-list 'interpreter-mode-alist '("runghc" . haskell-mode))
+(add-to-list 'interpreter-mode-alist '("runhaskell" . haskell-mode))
+
+(autoload 'haskell-hoogle "haskell-mode/haskell-mode" "\
+Do a Hoogle search for QUERY.
+When `haskell-hoogle-command' is non-nil, this command runs
+that.  Otherwise, it opens a hoogle search result in the browser.
+
+If prefix argument INFO is given, then `haskell-hoogle-command'
+is asked to show extra info for the items matching QUERY..
+
+\(fn QUERY &optional INFO)" t nil)
+
+(defalias 'hoogle 'haskell-hoogle)
+
+(autoload 'hoogle-lookup-from-local "haskell-mode/haskell-mode" "\
+Lookup by local hoogle.
+
+\(fn)" t nil)
+
+(autoload 'haskell-hayoo "haskell-mode/haskell-mode" "\
+Do a Hayoo search for QUERY.
+
+\(fn QUERY)" t nil)
+
+(defalias 'hayoo 'haskell-hayoo)
+
+;;;***
+
+;;;### (autoloads nil "haskell-mode/haskell-move-nested" "haskell-mode/haskell-move-nested.el"
+;;;;;;  (21613 27879 0 0))
+;;; Generated autoloads from haskell-mode/haskell-move-nested.el
+
+(autoload 'haskell-move-nested "haskell-mode/haskell-move-nested" "\
+Shift the nested off-side-rule block adjacent to point by COLS columns to the right.
+
+In Transient Mark mode, if the mark is active, operate on the contents
+of the region instead.
+
+\(fn COLS)" nil nil)
+
+(autoload 'haskell-move-nested-right "haskell-mode/haskell-move-nested" "\
+Increase indentation of the following off-side-rule block adjacent to point.
+
+Use a numeric prefix argument to indicate amount of indentation to apply.
+
+In Transient Mark mode, if the mark is active, operate on the contents
+of the region instead.
+
+\(fn COLS)" t nil)
+
+(autoload 'haskell-move-nested-left "haskell-mode/haskell-move-nested" "\
+Decrease indentation of the following off-side-rule block adjacent to point.
+
+Use a numeric prefix argument to indicate amount of indentation to apply.
+
+In Transient Mark mode, if the mark is active, operate on the contents
+of the region instead.
+
+\(fn COLS)" t nil)
+
+;;;***
+
+;;;### (autoloads nil "haskell-mode/haskell-navigate-imports" "haskell-mode/haskell-navigate-imports.el"
+;;;;;;  (21613 27879 0 0))
+;;; Generated autoloads from haskell-mode/haskell-navigate-imports.el
+
+(autoload 'haskell-navigate-imports "haskell-mode/haskell-navigate-imports" "\
+Cycle the Haskell import lines or return to point (with prefix arg).
+
+\(fn &optional RETURN)" t nil)
+
+(autoload 'haskell-navigate-imports-go "haskell-mode/haskell-navigate-imports" "\
+Go to the first line of a list of consequtive import lines. Cycles.
+
+\(fn)" t nil)
+
+(autoload 'haskell-navigate-imports-return "haskell-mode/haskell-navigate-imports" "\
+Return to the non-import point we were at before going to the module list.
+   If we were originally at an import list, we can just cycle through easily.
+
+\(fn)" t nil)
+
+;;;***
+
+;;;### (autoloads nil "haskell-mode/haskell-process" "haskell-mode/haskell-process.el"
+;;;;;;  (21613 27879 0 0))
+;;; Generated autoloads from haskell-mode/haskell-process.el
+
+(autoload 'haskell-process-generate-tags "haskell-mode/haskell-process" "\
+Regenerate the TAGS table.
+
+\(fn &optional AND-THEN-FIND-THIS-TAG)" t nil)
+
+(autoload 'haskell-process-do-type "haskell-mode/haskell-process" "\
+Print the type of the given expression.
+
+\(fn &optional INSERT-VALUE)" t nil)
+
+(autoload 'haskell-process-do-info "haskell-mode/haskell-process" "\
+Print info on the identifier at point.
+If PROMPT-VALUE is non-nil, request identifier via mini-buffer.
+
+\(fn &optional PROMPT-VALUE)" t nil)
+
+(autoload 'haskell-process-load-file "haskell-mode/haskell-process" "\
+Load the current buffer file.
+
+\(fn)" t nil)
+
+(autoload 'haskell-process-reload-file "haskell-mode/haskell-process" "\
+Re-load the current buffer file.
+
+\(fn)" t nil)
+
+(autoload 'haskell-process-load-or-reload "haskell-mode/haskell-process" "\
+Load or reload. Universal argument toggles which.
+
+\(fn &optional TOGGLE)" t nil)
+
+(autoload 'haskell-process-cabal-build "haskell-mode/haskell-process" "\
+Build the Cabal project.
+
+\(fn)" t nil)
+
+(autoload 'haskell-process-cabal "haskell-mode/haskell-process" "\
+Prompts for a Cabal command to run.
+
+\(fn P)" t nil)
+
+(autoload 'haskell-process-start "haskell-mode/haskell-process" "\
+Start the inferior Haskell process.
+
+\(fn SESSION)" nil nil)
+
+(autoload 'haskell-process "haskell-mode/haskell-process" "\
+Get the current process from the current session.
+
+\(fn)" nil nil)
+
+(autoload 'interactive-haskell-mode "haskell-mode/haskell-process" "\
+Minor mode for enabling haskell-process interaction.
+
+\(fn &optional ARG)" t nil)
+
+;;;***
+
+;;;### (autoloads nil "haskell-mode/haskell-session" "haskell-mode/haskell-session.el"
+;;;;;;  (21613 27879 0 0))
+;;; Generated autoloads from haskell-mode/haskell-session.el
+
+(autoload 'haskell-session-all-modules "haskell-mode/haskell-session" "\
+Get all modules -- installed or in the current project.
+If DONTCREATE is non-nil don't create a new session.
+
+\(fn &optional DONTCREATE)" nil nil)
+
+(autoload 'haskell-session-installed-modules "haskell-mode/haskell-session" "\
+Get the modules installed in the current package set.
+If DONTCREATE is non-nil don't create a new session.
+
+\(fn &optional DONTCREATE)" nil nil)
+
+(autoload 'haskell-session-maybe "haskell-mode/haskell-session" "\
+Maybe get the Haskell session, return nil if there isn't one.
+
+\(fn)" nil nil)
+
+(autoload 'haskell-session "haskell-mode/haskell-session" "\
+Get the Haskell session, prompt if there isn't one or fail.
+
+\(fn)" nil nil)
+
+(autoload 'haskell-session-process "haskell-mode/haskell-session" "\
+Get the session process.
+
+\(fn S)" nil nil)
+
+;;;***
+
+;;;### (autoloads nil "haskell-mode/haskell-show" "haskell-mode/haskell-show.el"
+;;;;;;  (21613 27879 0 0))
+;;; Generated autoloads from haskell-mode/haskell-show.el
+
+(autoload 'haskell-show-replace "haskell-mode/haskell-show" "\
+Replace the given region containing a Show value with a pretty
+  printed collapsible version.
+
+\(fn START END)" nil nil)
+
+(autoload 'haskell-show-parse-and-insert "haskell-mode/haskell-show" "\
+Parse a `string' containing a Show instance value and insert
+  it pretty printed into the current buffer.
+
+\(fn GIVEN)" nil nil)
+
+(autoload 'haskell-show-parse "haskell-mode/haskell-show" "\
+Parse the given input into a tree.
+
+\(fn GIVEN)" nil nil)
+
+;;;***
+
+;;;### (autoloads nil "haskell-mode/haskell-simple-indent" "haskell-mode/haskell-simple-indent.el"
+;;;;;;  (21613 27879 0 0))
+;;; Generated autoloads from haskell-mode/haskell-simple-indent.el
+
+(autoload 'haskell-simple-indent-mode "haskell-mode/haskell-simple-indent" "\
+Simple Haskell indentation mode that uses simple heuristic.
+In this minor mode, `indent-for-tab-command' (bound to <tab> by
+default) will move the cursor to the next indent point in the
+previous nonblank line, whereas `haskell-simple-indent-backtab'
+\(bound to <backtab> by default) will move the cursor the
+previous indent point.  An indent point is a non-whitespace
+character following whitespace.
+
+Runs `haskell-simple-indent-hook' on activation.
+
+\(fn &optional ARG)" t nil)
+
+(autoload 'turn-on-haskell-simple-indent "haskell-mode/haskell-simple-indent" "\
+Turn on function `haskell-simple-indent-mode'.
+
+\(fn)" t nil)
+
+;;;***
+
+;;;### (autoloads nil "haskell-mode/haskell-sort-imports" "haskell-mode/haskell-sort-imports.el"
+;;;;;;  (21613 27879 0 0))
+;;; Generated autoloads from haskell-mode/haskell-sort-imports.el
+
+(autoload 'haskell-sort-imports "haskell-mode/haskell-sort-imports" "\
+
+
+\(fn)" t nil)
+
+;;;***
+
+;;;### (autoloads nil "haskell-mode/haskell-string" "haskell-mode/haskell-string.el"
+;;;;;;  (21613 27879 0 0))
+;;; Generated autoloads from haskell-mode/haskell-string.el
+
+(autoload 'haskell-trim "haskell-mode/haskell-string" "\
+
+
+\(fn STRING)" nil nil)
+
+(autoload 'haskell-string-take "haskell-mode/haskell-string" "\
+Take n chars from string.
+
+\(fn STRING N)" nil nil)
+
+(autoload 'haskell-is-prefix-of "haskell-mode/haskell-string" "\
+Is x string a prefix of y string?
+
+\(fn X Y)" nil nil)
+
+;;;***
+
+;;;### (autoloads nil "haskell-mode/haskell-unicode-input-method"
+;;;;;;  "haskell-mode/haskell-unicode-input-method.el" (21613 27879
+;;;;;;  0 0))
+;;; Generated autoloads from haskell-mode/haskell-unicode-input-method.el
+
+(autoload 'turn-on-haskell-unicode-input-method "haskell-mode/haskell-unicode-input-method" "\
+Set input method `haskell-unicode'.
+See Info node `Unicode(haskell-mode)' for more details.
+
+\(fn)" t nil)
+
+;;;***
+
+;;;### (autoloads nil "haskell-mode/haskell-yas" "haskell-mode/haskell-yas.el"
+;;;;;;  (21613 27879 0 0))
+;;; Generated autoloads from haskell-mode/haskell-yas.el
+
+(autoload 'haskell-yas-complete "haskell-mode/haskell-yas" "\
+
+
+\(fn &rest ARGS)" nil nil)
+
+(autoload 'haskell-snippets-initialize "haskell-mode/haskell-yas" "\
+Register haskell snippets with yasnippet.
+
+\(fn)" nil nil)
+
+(eval-after-load 'yasnippet '(haskell-snippets-initialize))
+
+;;;***
+
+;;;### (autoloads nil "haskell-mode/inf-haskell" "haskell-mode/inf-haskell.el"
+;;;;;;  (21613 27879 0 0))
+;;; Generated autoloads from haskell-mode/inf-haskell.el
+
+(defalias 'run-haskell 'switch-to-haskell)
+
+(autoload 'switch-to-haskell "haskell-mode/inf-haskell" "\
+Show the inferior-haskell buffer.  Start the process if needed.
+
+\(fn &optional ARG)" t nil)
+
+(autoload 'inferior-haskell-load-file "haskell-mode/inf-haskell" "\
+Pass the current buffer's file to the inferior haskell process.
+If prefix arg \\[universal-argument] is given, just reload the previous file.
+
+\(fn &optional RELOAD)" t nil)
+
+(autoload 'inferior-haskell-load-and-run "haskell-mode/inf-haskell" "\
+Pass the current buffer's file to haskell and then run a COMMAND.
+
+\(fn COMMAND)" t nil)
+
+(autoload 'inferior-haskell-send-decl "haskell-mode/inf-haskell" "\
+Send current declaration to inferior-haskell process.
+
+\(fn)" t nil)
+
+(autoload 'inferior-haskell-type "haskell-mode/inf-haskell" "\
+Query the haskell process for the type of the given expression.
+If optional argument `insert-value' is non-nil, insert the type above point
+in the buffer.  This can be done interactively with the \\[universal-argument] prefix.
+The returned info is cached for reuse by `haskell-doc-mode'.
+
+\(fn EXPR &optional INSERT-VALUE)" t nil)
+
+(autoload 'inferior-haskell-kind "haskell-mode/inf-haskell" "\
+Query the haskell process for the kind of the given expression.
+
+\(fn TYPE)" t nil)
+
+(autoload 'inferior-haskell-info "haskell-mode/inf-haskell" "\
+Query the haskell process for the info of the given expression.
+
+\(fn SYM)" t nil)
+
+(autoload 'inferior-haskell-find-definition "haskell-mode/inf-haskell" "\
+Attempt to locate and jump to the definition of the given expression.
+
+\(fn SYM)" t nil)
+
+(autoload 'inferior-haskell-find-haddock "haskell-mode/inf-haskell" "\
+Find and open the Haddock documentation of SYM.
+Make sure to load the file into GHCi or Hugs first by using C-c C-l.
+Only works for functions in a package installed with ghc-pkg, or
+whatever the value of `haskell-package-manager-name' is.
+
+This function needs to find which package a given module belongs
+to.  In order to do this, it computes a module-to-package lookup
+alist, which is expensive to compute (it takes upwards of five
+seconds with more than about thirty installed packages).  As a
+result, we cache it across sessions using the cache file
+referenced by `inferior-haskell-module-alist-file'. We test to
+see if this is newer than `haskell-package-conf-file' every time
+we load it.
+
+\(fn SYM)" t nil)
+
+(autoload 'inf-haskell-mode "haskell-mode/inf-haskell" "\
+Minor mode for enabling inf-haskell process interaction.
+
+\(fn &optional ARG)" t nil)
 
 ;;;***
 
@@ -3366,6 +4362,357 @@ Major mode for editing GitHub Flavored Markdown files.
 
 ;;;***
 
+;;;### (autoloads nil "mic-paren/mic-paren" "mic-paren/mic-paren.el"
+;;;;;;  (21641 63447 0 0))
+;;; Generated autoloads from mic-paren/mic-paren.el
+
+(autoload 'paren-activate "mic-paren/mic-paren" "\
+Activate mic-paren parenthesis highlighting.
+Note: This also deactivates the paren.el
+and stig-paren.el packages if they are active!
+
+The following options are available via the customize-feature:
+  `paren-priority'
+  `paren-overlay-priority'
+  `paren-sexp-mode'
+  `paren-highlight-at-point'
+  `paren-highlight-offscreen'
+  `paren-display-message'
+  `paren-message-linefeed-display'
+  `paren-message-no-match'
+  `paren-message-show-linenumber'
+  `paren-message-truncate-lines'
+  `paren-ding-unmatched'
+  `paren-delay'
+  `paren-dont-touch-blink'
+  `paren-match-face'
+  `paren-mismatch-face'
+  `paren-no-match-face'
+  `paren-bind-modified-sexp-functions'
+
+The following options are settable via toggling functions (look at the
+documentation of these options for the names of these functions):
+  `paren-match-quoted-paren'
+  `paren-match-paired-delimiter'
+  `paren-open-paren-context-backward'
+
+\(fn)" t nil)
+
+(autoload 'paren-deactivate "mic-paren/mic-paren" "\
+Deactivate mic-paren parenthesis highlighting.
+
+\(fn)" t nil)
+
+(autoload 'paren-toggle-matching-paired-delimiter "mic-paren/mic-paren" "\
+Toggle matching paired delimiter.
+Force on with positive ARG.  Use this in mode hooks to activate or
+deactivate paired delimiter matching.  If optional second argument
+NO-MESSAGE is non-nil then don't display a message about the
+current activation state of the paired-delimiter-matching feature.
+
+\(fn ARG &optional NO-MESSAGE)" t nil)
+
+(autoload 'paren-toggle-matching-quoted-paren "mic-paren/mic-paren" "\
+Toggle matching quoted parens.
+Force on with positive ARG.  Use this in mode hooks to activate or
+deactivate quoted paren matching.  If optional second argument
+NO-MESSAGE is non-nil then don't display a message about the
+current activation state of the quoted-paren-matching feature.
+
+\(fn ARG &optional NO-MESSAGE)" t nil)
+
+(autoload 'paren-toggle-open-paren-context "mic-paren/mic-paren" "\
+Toggle whether or not to determine context of the matching open-paren.
+Force backward context with positive ARG.  Use this in mode-hooks.
+See `paren-open-paren-context-backward'.
+
+\(fn ARG)" t nil)
+
+(autoload 'paren-forward-sexp "mic-paren/mic-paren" "\
+Act like `forward-sexp' but also handle quoted parens.
+See `paren-match-quoted-paren'.
+
+\(fn &optional ARG)" t nil)
+
+(autoload 'paren-backward-sexp "mic-paren/mic-paren" "\
+Act like `backward-sexp' but also match quoted parens.
+See `paren-match-quoted-paren'.
+
+\(fn &optional ARG)" t nil)
+
+;;;***
+
+;;;### (autoloads nil "multiple-cursors/mc-edit-lines" "multiple-cursors/mc-edit-lines.el"
+;;;;;;  (21586 32885 0 0))
+;;; Generated autoloads from multiple-cursors/mc-edit-lines.el
+
+(autoload 'mc/edit-lines "multiple-cursors/mc-edit-lines" "\
+Add one cursor to each line of the active region.
+Starts from mark and moves in straight down or up towards the
+line point is on.
+
+What is done with lines which are not long enough is governed by
+`mc/edit-lines-empty-lines'.  The prefix argument ARG can be used
+to override this.  If ARG is a symbol (when called from Lisp),
+that symbol is used instead of `mc/edit-lines-empty-lines'.
+Otherwise, if ARG negative, short lines will be ignored.  Any
+other non-nil value will cause short lines to be padded.
+
+\(fn &optional ARG)" t nil)
+
+(autoload 'mc/edit-ends-of-lines "multiple-cursors/mc-edit-lines" "\
+Add one cursor to the end of each line in the active region.
+
+\(fn)" t nil)
+
+(autoload 'mc/edit-beginnings-of-lines "multiple-cursors/mc-edit-lines" "\
+Add one cursor to the beginning of each line in the active region.
+
+\(fn)" t nil)
+
+;;;***
+
+;;;### (autoloads nil "multiple-cursors/mc-hide-unmatched-lines-mode"
+;;;;;;  "multiple-cursors/mc-hide-unmatched-lines-mode.el" (21586
+;;;;;;  32885 0 0))
+;;; Generated autoloads from multiple-cursors/mc-hide-unmatched-lines-mode.el
+
+(autoload 'mc-hide-unmatched-lines-mode "multiple-cursors/mc-hide-unmatched-lines-mode" "\
+Minor mode when enabled hides all lines where no cursos (and
+also hum/lines-to-expand below and above) To make use of this
+mode press \"C-'\" while multiple-cursor-mode is active. You can
+still edit lines while you are in mc-hide-unmatched-lines
+mode. To leave this mode press <return> or \"C-g\"
+
+\(fn &optional ARG)" t nil)
+
+;;;***
+
+;;;### (autoloads nil "multiple-cursors/mc-mark-more" "multiple-cursors/mc-mark-more.el"
+;;;;;;  (21586 32885 0 0))
+;;; Generated autoloads from multiple-cursors/mc-mark-more.el
+
+(autoload 'mc/mark-next-like-this "multiple-cursors/mc-mark-more" "\
+Find and mark the next part of the buffer matching the currently active region
+With negative ARG, delete the last one instead.
+With zero ARG, skip the last one and mark next.
+
+\(fn ARG)" t nil)
+
+(autoload 'mc/mark-next-word-like-this "multiple-cursors/mc-mark-more" "\
+
+
+\(fn ARG)" t nil)
+
+(autoload 'mc/mark-next-symbol-like-this "multiple-cursors/mc-mark-more" "\
+
+
+\(fn ARG)" t nil)
+
+(autoload 'mc/mark-previous-like-this "multiple-cursors/mc-mark-more" "\
+Find and mark the previous part of the buffer matching the currently active region
+With negative ARG, delete the last one instead.
+With zero ARG, skip the last one and mark next.
+
+\(fn ARG)" t nil)
+
+(autoload 'mc/mark-previous-word-like-this "multiple-cursors/mc-mark-more" "\
+
+
+\(fn ARG)" t nil)
+
+(autoload 'mc/mark-previous-symbol-like-this "multiple-cursors/mc-mark-more" "\
+
+
+\(fn ARG)" t nil)
+
+(autoload 'mc/mark-next-lines "multiple-cursors/mc-mark-more" "\
+
+
+\(fn ARG)" t nil)
+
+(autoload 'mc/mark-previous-lines "multiple-cursors/mc-mark-more" "\
+
+
+\(fn ARG)" t nil)
+
+(autoload 'mc/unmark-next-like-this "multiple-cursors/mc-mark-more" "\
+Deselect next part of the buffer matching the currently active region.
+
+\(fn)" t nil)
+
+(autoload 'mc/unmark-previous-like-this "multiple-cursors/mc-mark-more" "\
+Deselect prev part of the buffer matching the currently active region.
+
+\(fn)" t nil)
+
+(autoload 'mc/skip-to-next-like-this "multiple-cursors/mc-mark-more" "\
+Skip the current one and select the next part of the buffer matching the currently active region.
+
+\(fn)" t nil)
+
+(autoload 'mc/skip-to-previous-like-this "multiple-cursors/mc-mark-more" "\
+Skip the current one and select the prev part of the buffer matching the currently active region.
+
+\(fn)" t nil)
+
+(autoload 'mc/mark-all-like-this "multiple-cursors/mc-mark-more" "\
+Find and mark all the parts of the buffer matching the currently active region
+
+\(fn)" t nil)
+
+(autoload 'mc/mark-all-words-like-this "multiple-cursors/mc-mark-more" "\
+
+
+\(fn)" t nil)
+
+(autoload 'mc/mark-all-symbols-like-this "multiple-cursors/mc-mark-more" "\
+
+
+\(fn)" t nil)
+
+(autoload 'mc/mark-all-in-region "multiple-cursors/mc-mark-more" "\
+Find and mark all the parts in the region matching the given search
+
+\(fn BEG END)" t nil)
+
+(autoload 'mc/mark-all-in-region-regexp "multiple-cursors/mc-mark-more" "\
+Find and mark all the parts in the region matching the given regexp
+
+\(fn BEG END)" t nil)
+
+(autoload 'mc/mark-more-like-this-extended "multiple-cursors/mc-mark-more" "\
+Like mark-more-like-this, but then lets you adjust with arrows key.
+The adjustments work like this:
+
+   <up>    Mark previous like this and set direction to 'up
+   <down>  Mark next like this and set direction to 'down
+
+If direction is 'up:
+
+   <left>  Skip past the cursor furthest up
+   <right> Remove the cursor furthest up
+
+If direction is 'down:
+
+   <left>  Remove the cursor furthest down
+   <right> Skip past the cursor furthest down
+
+The bindings for these commands can be changed. See `mc/mark-more-like-this-extended-keymap'.
+
+\(fn)" t nil)
+
+(autoload 'mc/mark-all-like-this-dwim "multiple-cursors/mc-mark-more" "\
+Tries to guess what you want to mark all of.
+Can be pressed multiple times to increase selection.
+
+With prefix, it behaves the same as original `mc/mark-all-like-this'
+
+\(fn ARG)" t nil)
+
+(autoload 'mc/mark-all-dwim "multiple-cursors/mc-mark-more" "\
+Tries even harder to guess what you want to mark all of.
+
+If the region is active and spans multiple lines, it will behave
+as if `mc/mark-all-in-region'. With the prefix ARG, it will call
+`mc/edit-lines' instead.
+
+If the region is inactive or on a single line, it will behave like 
+`mc/mark-all-like-this-dwim'.
+
+\(fn ARG)" t nil)
+
+(autoload 'mc/mark-all-like-this-in-defun "multiple-cursors/mc-mark-more" "\
+Mark all like this in defun.
+
+\(fn)" t nil)
+
+(autoload 'mc/mark-all-words-like-this-in-defun "multiple-cursors/mc-mark-more" "\
+Mark all words like this in defun.
+
+\(fn)" t nil)
+
+(autoload 'mc/mark-all-symbols-like-this-in-defun "multiple-cursors/mc-mark-more" "\
+Mark all symbols like this in defun.
+
+\(fn)" t nil)
+
+(autoload 'mc/add-cursor-on-click "multiple-cursors/mc-mark-more" "\
+Add a cursor where you click.
+
+\(fn EVENT)" t nil)
+
+(autoload 'mc/mark-sgml-tag-pair "multiple-cursors/mc-mark-more" "\
+Mark the tag we're in and its pair for renaming.
+
+\(fn)" t nil)
+
+;;;***
+
+;;;### (autoloads nil "multiple-cursors/mc-mark-pop" "multiple-cursors/mc-mark-pop.el"
+;;;;;;  (21586 32885 0 0))
+;;; Generated autoloads from multiple-cursors/mc-mark-pop.el
+
+(autoload 'mc/mark-pop "multiple-cursors/mc-mark-pop" "\
+Add a cursor at the current point, pop off mark ring and jump
+to the popped mark.
+
+\(fn)" t nil)
+
+;;;***
+
+;;;### (autoloads nil "multiple-cursors/mc-separate-operations" "multiple-cursors/mc-separate-operations.el"
+;;;;;;  (21586 32885 0 0))
+;;; Generated autoloads from multiple-cursors/mc-separate-operations.el
+
+(autoload 'mc/insert-numbers "multiple-cursors/mc-separate-operations" "\
+Insert increasing numbers for each cursor, starting at 0 or ARG.
+
+\(fn ARG)" t nil)
+
+(autoload 'mc/reverse-regions "multiple-cursors/mc-separate-operations" "\
+
+
+\(fn)" t nil)
+
+(autoload 'mc/sort-regions "multiple-cursors/mc-separate-operations" "\
+
+
+\(fn)" t nil)
+
+;;;***
+
+;;;### (autoloads nil "multiple-cursors/multiple-cursors-core" "multiple-cursors/multiple-cursors-core.el"
+;;;;;;  (21586 32885 0 0))
+;;; Generated autoloads from multiple-cursors/multiple-cursors-core.el
+
+(autoload 'multiple-cursors-mode "multiple-cursors/multiple-cursors-core" "\
+Mode while multiple cursors are active.
+
+\(fn &optional ARG)" t nil)
+
+;;;***
+
+;;;### (autoloads nil "multiple-cursors/rectangular-region-mode"
+;;;;;;  "multiple-cursors/rectangular-region-mode.el" (21586 32885
+;;;;;;  0 0))
+;;; Generated autoloads from multiple-cursors/rectangular-region-mode.el
+
+(autoload 'set-rectangular-region-anchor "multiple-cursors/rectangular-region-mode" "\
+Anchors the rectangular region at point.
+
+Think of this one as `set-mark' except you're marking a rectangular region. It is
+an exceedingly quick way of adding multiple cursors to multiple lines.
+
+\(fn)" t nil)
+
+(autoload 'rectangular-region-mode "multiple-cursors/rectangular-region-mode" "\
+A mode for creating a rectangular region to edit
+
+\(fn &optional ARG)" t nil)
+
+;;;***
+
 ;;;### (autoloads nil "org-jira/org-jira" "org-jira/org-jira.el"
 ;;;;;;  (21583 52008 0 0))
 ;;; Generated autoloads from org-jira/org-jira.el
@@ -4804,161 +6151,8 @@ version.
 
 ;;;***
 
-;;;### (autoloads nil "powerline/powerline" "powerline/powerline.el"
-;;;;;;  (21581 48482 0 0))
-;;; Generated autoloads from powerline/powerline.el
 
-(autoload 'powerline-hud "powerline/powerline" "\
-Return an XPM of relative buffer location using FACE1 and FACE2 of optional WIDTH.
 
-\(fn FACE1 FACE2 &optional WIDTH)" nil nil)
-
-(autoload 'powerline-mouse "powerline/powerline" "\
-Return mouse handler for CLICK-GROUP given CLICK-TYPE and STRING.
-
-\(fn CLICK-GROUP CLICK-TYPE STRING)" nil nil)
-
-(autoload 'powerline-concat "powerline/powerline" "\
-Concatonate STRINGS and pad sides by spaces.
-
-\(fn &rest STRINGS)" nil nil)
-
-(autoload 'defpowerline "powerline/powerline" "\
-Create function NAME by wrapping BODY with powerline padding an propetization.
-
-\(fn NAME BODY)" nil t)
-
-(autoload 'powerline-raw "powerline/powerline" "\
-Render STR as mode-line data using FACE and optionally PAD import on left (l) or right (r).
-
-\(fn STR &optional FACE PAD)" nil nil)
-
-(autoload 'powerline-fill "powerline/powerline" "\
-Return empty space using FACE and leaving RESERVE space on the right.
-
-\(fn FACE RESERVE)" nil nil)
-
-(defpowerline powerline-major-mode (propertize (format-mode-line mode-name) 'mouse-face 'mode-line-highlight 'help-echo "Major mode\nmouse-1: Display major mode menu\nmouse-2: Show help for major mode\nmouse-3: Toggle minor modes" 'local-map (let ((map (make-sparse-keymap))) (define-key map [mode-line down-mouse-1] `(menu-item ,(purecopy "Menu Bar") ignore :filter (lambda (_) (mouse-menu-major-mode-map)))) (define-key map [mode-line mouse-2] 'describe-mode) (define-key map [mode-line down-mouse-3] mode-line-mode-menu) map)))
-
-(defpowerline powerline-minor-modes (mapconcat (lambda (mm) (propertize mm 'mouse-face 'mode-line-highlight 'help-echo "Minor mode\n mouse-1: Display minor mode menu\n mouse-2: Show help for minor mode\n mouse-3: Toggle minor modes" 'local-map (let ((map (make-sparse-keymap))) (define-key map [mode-line down-mouse-1] (powerline-mouse 'minor 'menu mm)) (define-key map [mode-line mouse-2] (powerline-mouse 'minor 'help mm)) (define-key map [mode-line down-mouse-3] (powerline-mouse 'minor 'menu mm)) (define-key map [header-line down-mouse-3] (powerline-mouse 'minor 'menu mm)) map))) (split-string (format-mode-line minor-mode-alist)) (propertize " " 'face face)))
-
-(defpowerline powerline-narrow (let (real-point-min real-point-max) (save-excursion (save-restriction (widen) (setq real-point-min (point-min) real-point-max (point-max)))) (when (or (/= real-point-min (point-min)) (/= real-point-max (point-max))) (propertize "Narrow" 'mouse-face 'mode-line-highlight 'help-echo "mouse-1: Remove narrowing from the current buffer" 'local-map (make-mode-line-mouse-map 'mouse-1 'mode-line-widen)))))
-
-(defpowerline powerline-vc (when (and (buffer-file-name (current-buffer)) vc-mode) (format-mode-line '(vc-mode vc-mode))))
-
-(defpowerline powerline-buffer-size (propertize (if powerline-buffer-size-suffix "%I" "%i") 'mouse-face 'mode-line-highlight 'local-map (make-mode-line-mouse-map 'mouse-1 (lambda nil (interactive) (setq powerline-buffer-size-suffix (not powerline-buffer-size-suffix)) (force-mode-line-update)))))
-
-(defpowerline powerline-buffer-id (format-mode-line mode-line-buffer-identification))
-
-(defpowerline powerline-process (cond ((symbolp mode-line-process) (symbol-value mode-line-process)) ((listp mode-line-process) (format-mode-line mode-line-process)) (t mode-line-process)))
-
-;;;***
-
-;;;### (autoloads nil "powerline/powerline-themes" "powerline/powerline-themes.el"
-;;;;;;  (21581 48482 0 0))
-;;; Generated autoloads from powerline/powerline-themes.el
-
-(autoload 'powerline-default-theme "powerline/powerline-themes" "\
-Setup the default mode-line.
-
-\(fn)" t nil)
-
-(autoload 'powerline-center-theme "powerline/powerline-themes" "\
-Setup a mode-line with major and minor modes centered.
-
-\(fn)" t nil)
-
-(autoload 'powerline-vim-theme "powerline/powerline-themes" "\
-Setup a Vim-like mode-line.
-
-\(fn)" t nil)
-
-(autoload 'powerline-nano-theme "powerline/powerline-themes" "\
-Setup a nano-like mode-line.
-
-\(fn)" t nil)
-
-;;;***
-
-;;;### (autoloads nil "projectile/helm-projectile" "projectile/helm-projectile.el"
-;;;;;;  (21581 48493 0 0))
-;;; Generated autoloads from projectile/helm-projectile.el
-
-(autoload 'helm-projectile "projectile/helm-projectile" "\
-Use projectile with Helm instead of ido.
-
-With a prefix ARG invalidates the cache first.
-If invoked outside of a project, displays a list of known projects to jump.
-
-\(fn &optional ARG)" t nil)
-
-(eval-after-load 'projectile '(progn (define-key projectile-command-map (kbd "h") 'helm-projectile)))
-
-;;;***
-
-;;;### (autoloads nil "projectile/projectile" "projectile/projectile.el"
-;;;;;;  (21581 48493 0 0))
-;;; Generated autoloads from projectile/projectile.el
-
-(autoload 'projectile-commander "projectile/projectile" "\
-Execute a Projectile command with a single letter.
-The user is prompted for a single character indicating the action to invoke.
-The `?' character describes then
-available actions.
-
-See `def-projectile-commander-method' for defining new methods.
-
-\(fn)" t nil)
-
-(defvar projectile-mode-line '(:eval (format " Projectile[%s]" (projectile-project-name))) "\
-Mode line ligher for Projectile.
-
-The value of this variable is a mode line template as in
-`mode-line-format'.  See Info Node `(elisp)Mode Line Format' for
-details about mode line templates.
-
-Customize this variable to change how Projectile displays its
-status in the mode line.  The default value displays the project
-name.  Set this variable to nil to disable the mode line
-entirely.")
-
-(custom-autoload 'projectile-mode-line "projectile/projectile" t)
-
-(autoload 'projectile-mode "projectile/projectile" "\
-Minor mode to assist project management and navigation.
-
-When called interactively, toggle `projectile-mode'.  With prefix
-ARG, enable `projectile-mode' if ARG is positive, otherwise disable
-it.
-
-When called from Lisp, enable `projectile-mode' if ARG is omitted,
-nil or positive.  If ARG is `toggle', toggle `projectile-mode'.
-Otherwise behave as if called interactively.
-
-\\{projectile-mode-map}
-
-\(fn &optional ARG)" t nil)
-
-(defvar projectile-global-mode nil "\
-Non-nil if Projectile-Global mode is enabled.
-See the command `projectile-global-mode' for a description of this minor mode.
-Setting this variable directly does not take effect;
-either customize it (see the info node `Easy Customization')
-or call the function `projectile-global-mode'.")
-
-(custom-autoload 'projectile-global-mode "projectile/projectile" nil)
-
-(autoload 'projectile-global-mode "projectile/projectile" "\
-Toggle Projectile mode in all buffers.
-With prefix ARG, enable Projectile-Global mode if ARG is positive;
-otherwise, disable it.  If called from Lisp, enable the mode if
-ARG is omitted or nil.
-
-Projectile mode is enabled in all buffers where
-`projectile-mode' would do it.
-See `projectile-mode' for more information on Projectile mode.
-
-\(fn &optional ARG)" t nil)
 
 ;;;***
 
@@ -5121,6 +6315,65 @@ Enable `rainbow-delimiters-mode'.
 Disable `rainbow-delimiters-mode'.
 
 \(fn)" nil nil)
+
+;;;***
+
+;;;### (autoloads nil "smart-tabs-mode/smart-tabs-mode" "smart-tabs-mode/smart-tabs-mode.el"
+;;;;;;  (21606 55519 0 0))
+;;; Generated autoloads from smart-tabs-mode/smart-tabs-mode.el
+
+(autoload 'smart-tabs-when "smart-tabs-mode/smart-tabs-mode" "\
+
+
+\(fn CONDITION ADVICE-LIST)" nil t)
+
+(put 'smart-tabs-when 'lisp-indent-function '1)
+
+(autoload 'smart-tabs-create-advice-list "smart-tabs-mode/smart-tabs-mode" "\
+
+
+\(fn ADVICE-LIST)" nil t)
+
+(autoload 'smart-tabs-create-language-advice "smart-tabs-mode/smart-tabs-mode" "\
+Create a cons cell containing the actions to take to enable
+`smart-tabs-mode' for the language LANG. This usually involved enabling
+`smart-tabs-mode' through `smart-tabs-mode-enable' and adding a lambda
+function to the MODE-HOOK for the specified language. This macro
+simplifies the creation of such a cons cell.
+
+\(fn LANG MODE-HOOK ADVICE-LIST &rest BODY)" nil t)
+
+(put 'smart-tabs-create-language-advice 'lisp-indent-function '2)
+
+(autoload 'smart-tabs-mode "smart-tabs-mode/smart-tabs-mode" "\
+Intelligently indent with tabs, align with spaces!
+
+\(fn &optional ARG)" t nil)
+
+(autoload 'smart-tabs-mode-enable "smart-tabs-mode/smart-tabs-mode" "\
+Enable smart-tabs-mode.
+
+\(fn)" nil nil)
+
+(autoload 'smart-tabs-advice "smart-tabs-mode/smart-tabs-mode" "\
+
+
+\(fn FUNCTION OFFSET)" nil t)
+
+(autoload 'smart-tabs-insinuate "smart-tabs-mode/smart-tabs-mode" "\
+Enable smart-tabs-mode for LANGUAGES.
+LANGUAGES is a list of SYMBOL or NAME as defined in
+'smart-tabs-insinuate-alist' alist or a language using standard named
+indent function and indent level.
+
+\(fn &rest LANGUAGES)" nil nil)
+
+(autoload 'smart-tabs-add-language-support "smart-tabs-mode/smart-tabs-mode" "\
+Add support for a language not already in the `smart-tabs-insinuate-alist'.
+
+\(fn LANG MODE-HOOK ADVICE-LIST &rest BODY)" nil t)
+
+(put 'smart-tabs-add-language-support 'lisp-indent-function '2)
 
 ;;;***
 
@@ -5591,11 +6844,17 @@ See `yas-minor-mode' for more information on Yas minor mode.
 
 ;;;***
 
-;;;### (autoloads nil nil ("ac-cider/ac-cider-autoloads.el" "ac-cider/ac-cider-pkg.el"
-;;;;;;  "auto-complete-clang/auto-complete-clang.el" "auto-complete/auto-complete-pkg.el"
-;;;;;;  "clojure-mode/clojure-mode-extra-font-locking.el" "ctable/ctable.el"
-;;;;;;  "ctable/test-ctable.el" "dash/dash-functional.el" "dash/dash.el"
-;;;;;;  "deferred/concurrent-sample.el" "deferred/concurrent.el"
+;;;### (autoloads nil nil ("ac-company/ac-company.el" "auto-complete-clang/auto-complete-clang.el"
+;;;;;;  "auto-complete/auto-complete-pkg.el" "cider/cider-client.el"
+;;;;;;  "cider/cider-doc.el" "cider/cider-eldoc.el" "cider/cider-interaction.el"
+;;;;;;  "cider/cider-repl.el" "cider/cider-stacktrace.el" "cider/cider-test.el"
+;;;;;;  "cider/cider-util.el" "cider/nrepl-client.el" "clojure-mode/clojure-mode-extra-font-locking.el"
+;;;;;;  "company-mode/company-capf.el" "company-mode/company-clang.el"
+;;;;;;  "company-mode/company-cmake.el" "company-mode/company-eclim.el"
+;;;;;;  "company-mode/company-elisp-tests.el" "company-mode/company-ropemacs.el"
+;;;;;;  "company-mode/company-template.el" "company-mode/company-tests.el"
+;;;;;;  "ctable/ctable.el" "ctable/test-ctable.el" "dash/dash-functional.el"
+;;;;;;  "dash/dash.el" "deferred/concurrent-sample.el" "deferred/concurrent.el"
 ;;;;;;  "deferred/deferred-samples.el" "deferred/deferred.el" "deferred/test-concurrent.el"
 ;;;;;;  "deferred/test-deferred.el" "el-get/el-get-autoloads.el"
 ;;;;;;  "el-get/el-get-build.el" "el-get/el-get-byte-compile.el"
@@ -5623,42 +6882,49 @@ See `yas-minor-mode' for more information on Yas minor mode.
 ;;;;;;  "expand-region/the-org-mode-expansions.el" "expand-region/web-mode-expansions.el"
 ;;;;;;  "f/f.el" "fringe-helper/fringe-helper.el" "fringe-helper/tests.el"
 ;;;;;;  "fuzzy/fuzzy.el" "git-gutter-fringe/git-gutter-fringe.el"
+;;;;;;  "haskell-mode/haskell-bot.el" "haskell-mode/haskell-checkers.el"
+;;;;;;  "haskell-mode/haskell-collapse.el" "haskell-mode/haskell-compat.el"
+;;;;;;  "haskell-mode/haskell-complete-module.el" "haskell-mode/haskell-debug.el"
+;;;;;;  "haskell-mode/haskell-mode-autoloads.el" "haskell-mode/haskell-package.el"
+;;;;;;  "haskell-mode/haskell-presentation-mode.el" "haskell-mode/haskell-str.el"
+;;;;;;  "haskell-mode/haskell-utils.el" "haskell-mode/w3m-haddock.el"
 ;;;;;;  "helm/helm-aliases.el" "helm/helm-autoloads.el" "helm/helm-pkg.el"
 ;;;;;;  "helm/helm-plugin.el" "helm/helm-source.el" "jedi/jedi-pkg.el"
 ;;;;;;  "jedi/test-jedi.el" "jedi/tryout-jedi.el" "jira/jira-autoloads.el"
 ;;;;;;  "jira/jira-pkg.el" "jira/jira.el" "linum-relative/linum-relative.el"
-;;;;;;  "nose/nose.el" "org-jira/jira-users.el" "org-jira/jiralib.el"
-;;;;;;  "org-mode/contrib/lisp/ob-eukleides.el" "org-mode/contrib/lisp/ob-fomus.el"
-;;;;;;  "org-mode/contrib/lisp/ob-julia.el" "org-mode/contrib/lisp/ob-mathomatic.el"
-;;;;;;  "org-mode/contrib/lisp/ob-oz.el" "org-mode/contrib/lisp/ob-stata.el"
-;;;;;;  "org-mode/contrib/lisp/ob-tcl.el" "org-mode/contrib/lisp/org-bibtex-extras.el"
-;;;;;;  "org-mode/contrib/lisp/org-bookmark.el" "org-mode/contrib/lisp/org-checklist.el"
-;;;;;;  "org-mode/contrib/lisp/org-choose.el" "org-mode/contrib/lisp/org-collector.el"
-;;;;;;  "org-mode/contrib/lisp/org-contribdir.el" "org-mode/contrib/lisp/org-depend.el"
-;;;;;;  "org-mode/contrib/lisp/org-download.el" "org-mode/contrib/lisp/org-drill.el"
-;;;;;;  "org-mode/contrib/lisp/org-ebib.el" "org-mode/contrib/lisp/org-effectiveness.el"
-;;;;;;  "org-mode/contrib/lisp/org-elisp-symbol.el" "org-mode/contrib/lisp/org-eval-light.el"
-;;;;;;  "org-mode/contrib/lisp/org-eval.el" "org-mode/contrib/lisp/org-eww.el"
-;;;;;;  "org-mode/contrib/lisp/org-expiry.el" "org-mode/contrib/lisp/org-git-link.el"
-;;;;;;  "org-mode/contrib/lisp/org-index.el" "org-mode/contrib/lisp/org-interactive-query.el"
-;;;;;;  "org-mode/contrib/lisp/org-invoice.el" "org-mode/contrib/lisp/org-jira.el"
-;;;;;;  "org-mode/contrib/lisp/org-learn.el" "org-mode/contrib/lisp/org-license.el"
-;;;;;;  "org-mode/contrib/lisp/org-mac-iCal.el" "org-mode/contrib/lisp/org-mac-link.el"
-;;;;;;  "org-mode/contrib/lisp/org-mairix.el" "org-mode/contrib/lisp/org-man.el"
-;;;;;;  "org-mode/contrib/lisp/org-mew.el" "org-mode/contrib/lisp/org-mime.el"
-;;;;;;  "org-mode/contrib/lisp/org-notify.el" "org-mode/contrib/lisp/org-notmuch.el"
-;;;;;;  "org-mode/contrib/lisp/org-panel.el" "org-mode/contrib/lisp/org-screen.el"
-;;;;;;  "org-mode/contrib/lisp/org-secretary.el" "org-mode/contrib/lisp/org-static-mathjax.el"
-;;;;;;  "org-mode/contrib/lisp/org-sudoku.el" "org-mode/contrib/lisp/org-velocity.el"
-;;;;;;  "org-mode/contrib/lisp/org-vm.el" "org-mode/contrib/lisp/org-wikinodes.el"
-;;;;;;  "org-mode/contrib/lisp/org-wl.el" "org-mode/contrib/lisp/orgtbl-sqlinsert.el"
-;;;;;;  "org-mode/contrib/lisp/ox-bibtex.el" "org-mode/contrib/lisp/ox-confluence.el"
-;;;;;;  "org-mode/contrib/lisp/ox-deck.el" "org-mode/contrib/lisp/ox-extra.el"
-;;;;;;  "org-mode/contrib/lisp/ox-gfm.el" "org-mode/contrib/lisp/ox-groff.el"
-;;;;;;  "org-mode/contrib/lisp/ox-s5.el" "org-mode/lisp/ob-C.el"
-;;;;;;  "org-mode/lisp/ob-J.el" "org-mode/lisp/ob-R.el" "org-mode/lisp/ob-abc.el"
-;;;;;;  "org-mode/lisp/ob-asymptote.el" "org-mode/lisp/ob-awk.el"
-;;;;;;  "org-mode/lisp/ob-calc.el" "org-mode/lisp/ob-clojure.el"
+;;;;;;  "multiple-cursors/mc-cycle-cursors.el" "multiple-cursors/multiple-cursors-pkg.el"
+;;;;;;  "multiple-cursors/multiple-cursors.el" "nose/nose.el" "org-jira/jira-users.el"
+;;;;;;  "org-jira/jiralib.el" "org-mode/contrib/lisp/ob-eukleides.el"
+;;;;;;  "org-mode/contrib/lisp/ob-fomus.el" "org-mode/contrib/lisp/ob-julia.el"
+;;;;;;  "org-mode/contrib/lisp/ob-mathomatic.el" "org-mode/contrib/lisp/ob-oz.el"
+;;;;;;  "org-mode/contrib/lisp/ob-stata.el" "org-mode/contrib/lisp/ob-tcl.el"
+;;;;;;  "org-mode/contrib/lisp/org-bibtex-extras.el" "org-mode/contrib/lisp/org-bookmark.el"
+;;;;;;  "org-mode/contrib/lisp/org-checklist.el" "org-mode/contrib/lisp/org-choose.el"
+;;;;;;  "org-mode/contrib/lisp/org-collector.el" "org-mode/contrib/lisp/org-contribdir.el"
+;;;;;;  "org-mode/contrib/lisp/org-depend.el" "org-mode/contrib/lisp/org-download.el"
+;;;;;;  "org-mode/contrib/lisp/org-drill.el" "org-mode/contrib/lisp/org-ebib.el"
+;;;;;;  "org-mode/contrib/lisp/org-effectiveness.el" "org-mode/contrib/lisp/org-elisp-symbol.el"
+;;;;;;  "org-mode/contrib/lisp/org-eval-light.el" "org-mode/contrib/lisp/org-eval.el"
+;;;;;;  "org-mode/contrib/lisp/org-eww.el" "org-mode/contrib/lisp/org-expiry.el"
+;;;;;;  "org-mode/contrib/lisp/org-git-link.el" "org-mode/contrib/lisp/org-index.el"
+;;;;;;  "org-mode/contrib/lisp/org-interactive-query.el" "org-mode/contrib/lisp/org-invoice.el"
+;;;;;;  "org-mode/contrib/lisp/org-jira.el" "org-mode/contrib/lisp/org-learn.el"
+;;;;;;  "org-mode/contrib/lisp/org-license.el" "org-mode/contrib/lisp/org-mac-iCal.el"
+;;;;;;  "org-mode/contrib/lisp/org-mac-link.el" "org-mode/contrib/lisp/org-mairix.el"
+;;;;;;  "org-mode/contrib/lisp/org-man.el" "org-mode/contrib/lisp/org-mew.el"
+;;;;;;  "org-mode/contrib/lisp/org-mime.el" "org-mode/contrib/lisp/org-notify.el"
+;;;;;;  "org-mode/contrib/lisp/org-notmuch.el" "org-mode/contrib/lisp/org-panel.el"
+;;;;;;  "org-mode/contrib/lisp/org-screen.el" "org-mode/contrib/lisp/org-secretary.el"
+;;;;;;  "org-mode/contrib/lisp/org-static-mathjax.el" "org-mode/contrib/lisp/org-sudoku.el"
+;;;;;;  "org-mode/contrib/lisp/org-velocity.el" "org-mode/contrib/lisp/org-vm.el"
+;;;;;;  "org-mode/contrib/lisp/org-wikinodes.el" "org-mode/contrib/lisp/org-wl.el"
+;;;;;;  "org-mode/contrib/lisp/orgtbl-sqlinsert.el" "org-mode/contrib/lisp/ox-bibtex.el"
+;;;;;;  "org-mode/contrib/lisp/ox-confluence.el" "org-mode/contrib/lisp/ox-deck.el"
+;;;;;;  "org-mode/contrib/lisp/ox-extra.el" "org-mode/contrib/lisp/ox-gfm.el"
+;;;;;;  "org-mode/contrib/lisp/ox-groff.el" "org-mode/contrib/lisp/ox-s5.el"
+;;;;;;  "org-mode/lisp/ob-C.el" "org-mode/lisp/ob-J.el" "org-mode/lisp/ob-R.el"
+;;;;;;  "org-mode/lisp/ob-abc.el" "org-mode/lisp/ob-asymptote.el"
+;;;;;;  "org-mode/lisp/ob-awk.el" "org-mode/lisp/ob-calc.el" "org-mode/lisp/ob-clojure.el"
 ;;;;;;  "org-mode/lisp/ob-comint.el" "org-mode/lisp/ob-coq.el" "org-mode/lisp/ob-core.el"
 ;;;;;;  "org-mode/lisp/ob-css.el" "org-mode/lisp/ob-ditaa.el" "org-mode/lisp/ob-dot.el"
 ;;;;;;  "org-mode/lisp/ob-ebnf.el" "org-mode/lisp/ob-emacs-lisp.el"
@@ -5699,17 +6965,17 @@ See `yas-minor-mode' for more information on Yas minor mode.
 ;;;;;;  "org-mode/lisp/ox-latex.el" "org-mode/lisp/ox-man.el" "org-mode/lisp/ox-md.el"
 ;;;;;;  "org-mode/lisp/ox-odt.el" "org-mode/lisp/ox-org.el" "org-mode/lisp/ox-publish.el"
 ;;;;;;  "org-mode/lisp/ox-texinfo.el" "org-mode/lisp/ox.el" "popup/popup.el"
-;;;;;;  "powerline/powerline-separators.el" "projectile/persp-projectile.el"
 ;;;;;;  "python-environment/python-environment.el" "python-environment/test-python-environment.el"
 ;;;;;;  "queue/queue-autoloads.el" "queue/queue-pkg.el" "quickrun/test-quickrun.el"
-;;;;;;  "s/s.el" "smartparens/smartparens-config.el" "smartparens/smartparens-html.el"
+;;;;;;  "s/s.el" "smart-tabs-mode/smart-tabs-mode-autoloads.el" "smart-tabs-mode/smart-tabs-mode-pkg.el"
+;;;;;;  "smartparens/smartparens-config.el" "smartparens/smartparens-html.el"
 ;;;;;;  "smartparens/smartparens-latex.el" "smartparens/smartparens-lua.el"
 ;;;;;;  "smartparens/smartparens-pkg.el" "smartparens/smartparens-ruby.el"
 ;;;;;;  "soap-client/jira2.el" "soap-client/soap-client.el" "soap-client/soap-inspect.el"
 ;;;;;;  "solarized-emacs/solarized-dark-theme.el" "solarized-emacs/solarized-light-theme.el"
 ;;;;;;  "solarized-emacs/solarized-theme-pkg.el" "solarized-emacs/solarized-theme-utils.el"
 ;;;;;;  "solarized-emacs/solarized-theme.el" "yasnippet/yasnippet-debug.el"
-;;;;;;  "yasnippet/yasnippet-tests.el") (21584 4795 698862 0))
+;;;;;;  "yasnippet/yasnippet-tests.el") (21641 63470 890215 0))
 
 ;;;***
 

@@ -124,4 +124,4 @@
   (yas-global-mode))
 
 (ome-install 'popup)
-(ome-install 'yasnippet)
+;;(ome-install 'yasnippet)
