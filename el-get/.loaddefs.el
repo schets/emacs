@@ -137,7 +137,7 @@ one, an error is signaled.
 
 ;;;***
 
-;;;### (autoloads nil "cider/cider" "cider/cider.el" (21635 29369
+;;;### (autoloads nil "cider/cider" "cider/cider.el" (21785 39818
 ;;;;;;  0 0))
 ;;; Generated autoloads from cider/cider.el
 
@@ -164,7 +164,7 @@ Create REPL buffer and start an nREPL client connection.
 ;;;***
 
 ;;;### (autoloads nil "cider/cider-apropos" "cider/cider-apropos.el"
-;;;;;;  (21635 29369 0 0))
+;;;;;;  (21785 39818 0 0))
 ;;; Generated autoloads from cider/cider-apropos.el
 
 (autoload 'cider-apropos "cider/cider-apropos" "\
@@ -182,7 +182,7 @@ Shortcut for (cider-apropos <query> nil t).
 ;;;***
 
 ;;;### (autoloads nil "cider/cider-browse-ns" "cider/cider-browse-ns.el"
-;;;;;;  (21635 29369 0 0))
+;;;;;;  (21785 39818 0 0))
 ;;; Generated autoloads from cider/cider-browse-ns.el
 
 (autoload 'cider-browse-ns "cider/cider-browse-ns" "\
@@ -198,7 +198,7 @@ List all loaded namespaces in BUFFER.
 ;;;***
 
 ;;;### (autoloads nil "cider/cider-classpath" "cider/cider-classpath.el"
-;;;;;;  (21635 29369 0 0))
+;;;;;;  (21785 39818 0 0))
 ;;; Generated autoloads from cider/cider-classpath.el
 
 (autoload 'cider-classpath "cider/cider-classpath" "\
@@ -213,24 +213,52 @@ Open a classpath entry.
 
 ;;;***
 
+;;;### (autoloads nil "cider/cider-debug" "cider/cider-debug.el"
+;;;;;;  (21785 39818 0 0))
+;;; Generated autoloads from cider/cider-debug.el
+
+(autoload 'cider-debug-defun-at-point "cider/cider-debug" "\
+Instrument the top-level expression at point.
+If it is a defn, dispatch the instrumented definition.  Otherwise,
+immediately evaluate the instrumented expression.
+
+While debugged code is being evaluated, the user is taken through the
+source code and displayed the value of various expressions.  At each step,
+the following keys are available:
+    n: Next step
+    c: Continue without stopping
+    i: Inject a value at this point
+
+\(fn)" t nil)
+
+;;;***
+
 ;;;### (autoloads nil "cider/cider-grimoire" "cider/cider-grimoire.el"
-;;;;;;  (21635 29369 0 0))
+;;;;;;  (21785 39818 0 0))
 ;;; Generated autoloads from cider/cider-grimoire.el
 
 (autoload 'cider-grimoire-web "cider/cider-grimoire" "\
-Open the grimoire documentation for QUERY in the default web browser.
+Open grimoire documentation in the default web browser.
 
-\(fn QUERY)" t nil)
+Prompts for the symbol to use, or uses the symbol at point, depending on
+the value of `cider-prompt-for-symbol'. With prefix arg ARG, does the
+opposite of what that option dictates.
+
+\(fn &optional ARG)" t nil)
 
 (autoload 'cider-grimoire "cider/cider-grimoire" "\
-Open the grimoire documentation for QUERY in a popup buffer.
+Open grimoire documentation in a popup buffer.
 
-\(fn QUERY)" t nil)
+Prompts for the symbol to use, or uses the symbol at point, depending on
+the value of `cider-prompt-for-symbol'. With prefix arg ARG, does the
+opposite of what that option dictates.
+
+\(fn &optional ARG)" t nil)
 
 ;;;***
 
 ;;;### (autoloads nil "cider/cider-inspector" "cider/cider-inspector.el"
-;;;;;;  (21635 29369 0 0))
+;;;;;;  (21785 39818 0 0))
 ;;; Generated autoloads from cider/cider-inspector.el
 
 (autoload 'cider-inspect "cider/cider-inspector" "\
@@ -241,7 +269,7 @@ Eval the string EXPRESSION and inspect the result.
 ;;;***
 
 ;;;### (autoloads nil "cider/cider-macroexpansion" "cider/cider-macroexpansion.el"
-;;;;;;  (21635 29369 0 0))
+;;;;;;  (21785 39818 0 0))
 ;;; Generated autoloads from cider/cider-macroexpansion.el
 
 (autoload 'cider-macroexpand-1 "cider/cider-macroexpansion" "\
@@ -258,12 +286,12 @@ Invoke 'clojure.walk/macroexpand-all' on the expression preceding point.
 
 ;;;***
 
-;;;### (autoloads nil "cider/cider-mode" "cider/cider-mode.el" (21635
-;;;;;;  29369 0 0))
+;;;### (autoloads nil "cider/cider-mode" "cider/cider-mode.el" (21785
+;;;;;;  39818 0 0))
 ;;; Generated autoloads from cider/cider-mode.el
 
 (defvar cider-mode-line '(:eval (format " cider[%s]" (cider-current-ns))) "\
-Mode line ligher for `cider-mode'.
+Mode line lighter for `cider-mode'.
 
 The value of this variable is a mode line template as in
 `mode-line-format'.  See Info Node `(elisp)Mode Line Format' for
@@ -286,7 +314,7 @@ Minor mode for REPL interaction from a Clojure buffer.
 ;;;***
 
 ;;;### (autoloads nil "cider/cider-scratch" "cider/cider-scratch.el"
-;;;;;;  (21635 29369 0 0))
+;;;;;;  (21785 39818 0 0))
 ;;; Generated autoloads from cider/cider-scratch.el
 
 (autoload 'cider-scratch "cider/cider-scratch" "\
@@ -297,7 +325,7 @@ Create a scratch buffer.
 ;;;***
 
 ;;;### (autoloads nil "cider/cider-selector" "cider/cider-selector.el"
-;;;;;;  (21635 29369 0 0))
+;;;;;;  (21785 39818 0 0))
 ;;; Generated autoloads from cider/cider-selector.el
 
 (autoload 'cider-selector "cider/cider-selector" "\
@@ -655,6 +683,31 @@ shadow back-ends that come after it.  Recommended usages:
 
 ;;;***
 
+;;;### (autoloads nil "ctags-update/ctags-update" "ctags-update/ctags-update.el"
+;;;;;;  (21661 47291 0 0))
+;;; Generated autoloads from ctags-update/ctags-update.el
+
+(autoload 'ctags-update "ctags-update/ctags-update" "\
+update TAGS in parent directory using `exuberant-ctags'.
+1. you can call this function directly,
+2. enable `ctags-auto-update-mode',
+3. with prefix `C-u' then you can generate a new TAGS file in directory,
+4. with prefix `C-uC-u' save the command to kill-ring instead of execute it.
+
+\(fn &optional ARGS)" t nil)
+
+(autoload 'ctags-auto-update-mode "ctags-update/ctags-update" "\
+auto update TAGS using `exuberant-ctags' in parent directory.
+
+\(fn &optional ARG)" t nil)
+
+(autoload 'turn-on-ctags-auto-update-mode "ctags-update/ctags-update" "\
+turn on `ctags-auto-update-mode'.
+
+\(fn)" t nil)
+
+;;;***
+
 ;;;### (autoloads nil "diminish/diminish" "diminish/diminish.el"
 ;;;;;;  (21581 48486 0 0))
 ;;; Generated autoloads from diminish/diminish.el
@@ -789,6 +842,23 @@ more structured list.
 
 ;;;***
 
+;;;### (autoloads nil "ensime/ensime" "ensime/ensime.el" (21735 39460
+;;;;;;  0 0))
+;;; Generated autoloads from ensime/ensime.el
+
+(autoload 'ensime "ensime/ensime" "\
+Read config file for settings. Then start an inferior
+   ENSIME server and connect to its Swank server.
+
+\(fn)" t nil)
+
+(autoload 'ensime-remote "ensime/ensime" "\
+Read config file for settings. Then connect to an existing ENSIME server.
+
+\(fn HOST PORT)" t nil)
+
+;;;***
+
 ;;;### (autoloads nil "evil-leader/evil-leader" "evil-leader/evil-leader.el"
 ;;;;;;  (21581 48532 0 0))
 ;;; Generated autoloads from evil-leader/evil-leader.el
@@ -882,6 +952,40 @@ See `evil-surround-mode' for more information on Evil-Surround mode.
 ;;;;;;  48525 0 0))
 ;;; Generated autoloads from evil/evil-core.el
  (autoload 'evil-mode "evil" "Toggle evil in all buffers" t)
+
+;;;***
+
+;;;### (autoloads nil "exec-path-from-shell/exec-path-from-shell"
+;;;;;;  "exec-path-from-shell/exec-path-from-shell.el" (21724 84
+;;;;;;  0 0))
+;;; Generated autoloads from exec-path-from-shell/exec-path-from-shell.el
+
+(autoload 'exec-path-from-shell-copy-envs "exec-path-from-shell/exec-path-from-shell" "\
+Set the environment variables with NAMES from the user's shell.
+
+As a special case, if the variable is $PATH, then `exec-path' and
+`eshell-path-env' are also set appropriately.  The result is an alist,
+as described by `exec-path-from-shell-getenvs'.
+
+\(fn NAMES)" nil nil)
+
+(autoload 'exec-path-from-shell-copy-env "exec-path-from-shell/exec-path-from-shell" "\
+Set the environment variable $NAME from the user's shell.
+
+As a special case, if the variable is $PATH, then `exec-path' and
+`eshell-path-env' are also set appropriately.  Return the value
+of the environment variable.
+
+\(fn NAME)" t nil)
+
+(autoload 'exec-path-from-shell-initialize "exec-path-from-shell/exec-path-from-shell" "\
+Initialize environment from the user's shell.
+
+The values of all the environment variables named in
+`exec-path-from-shell-variables' are set from the corresponding
+values used in the user's shell.
+
+\(fn)" t nil)
 
 ;;;***
 
@@ -6318,6 +6422,90 @@ Disable `rainbow-delimiters-mode'.
 
 ;;;***
 
+;;;### (autoloads nil "sbt-mode/sbt-mode" "sbt-mode/sbt-mode.el"
+;;;;;;  (21735 39475 0 0))
+;;; Generated autoloads from sbt-mode/sbt-mode.el
+
+(autoload 'sbt-start "sbt-mode/sbt-mode" "\
+Start sbt
+
+\(fn)" t nil)
+
+(autoload 'run-scala "sbt-mode/sbt-mode" "\
+Pop up Scala REPL buffer.
+
+If the sbt buffer is not in REPL mode, it will switch to REPL mode (console).
+
+\(fn)" t nil)
+
+(autoload 'sbt-command "sbt-mode/sbt-mode" "\
+Send a command to the sbt process of the current buffer's sbt project.
+Prompts for the command to send when in interactive mode. You can
+use tab completion.
+
+This command does the following:
+  - displays the buffer without moving focus to it
+  - erases the buffer
+  - forgets about compilation errors
+
+The command is most usefull for running a compilation command
+that outputs errors.
+
+\(fn COMMAND)" t nil)
+
+(autoload 'sbt-run-previous-command "sbt-mode/sbt-mode" "\
+Repeat the command that was previously executed (or run the
+sbt:default-command, if no other command has yet been run).
+
+\(fn)" t nil)
+
+;;;***
+
+;;;### (autoloads nil "sbt-mode/sbt-mode-rgrep" "sbt-mode/sbt-mode-rgrep.el"
+;;;;;;  (21735 39475 0 0))
+;;; Generated autoloads from sbt-mode/sbt-mode-rgrep.el
+
+(autoload 'sbt-grep "sbt-mode/sbt-mode-rgrep" "\
+Recursively grep for REGEXP in FILES in directory tree rooted at DIR. By default DIR is is the sbt project root.
+
+\(fn REGEXP &optional FILES DIR CONFIRM)" t nil)
+
+(autoload 'sbt-find-usages "sbt-mode/sbt-mode-rgrep" "\
+Recursively grep for ID in scala files in directory tree rooted at DIR. By default DIR is is the sbt project root.
+
+\(fn ID &optional DIR CONFIRM)" t nil)
+
+(autoload 'sbt-find-definitions "sbt-mode/sbt-mode-rgrep" "\
+Recursively grep for definition of ID in scala files in the directory tree rooted at the sbt project root.
+
+\(fn ID &optional CONFIRM)" t nil)
+
+;;;***
+
+;;;### (autoloads nil "scala-mode2/scala-mode2" "scala-mode2/scala-mode2.el"
+;;;;;;  (21718 43870 0 0))
+;;; Generated autoloads from scala-mode2/scala-mode2.el
+
+(autoload 'scala-mode:set-scala-syntax-mode "scala-mode2/scala-mode2" "\
+Sets the syntax-table and other realted variables for the current buffer to those of scala-mode. Can be used to make some other major mode (such as sbt-mode) use scala syntax-table.
+
+\(fn)" nil nil)
+
+(autoload 'scala-mode "scala-mode2/scala-mode2" "\
+Major mode for editing scala code.
+
+When started, runs `scala-mode-hook'. 
+
+\\{scala-mode-map}
+
+\(fn)" t nil)
+
+(add-to-list 'auto-mode-alist '("\\.\\(scala\\|sbt\\)\\'" . scala-mode))
+
+(modify-coding-system-alist 'file "\\.\\(scala\\|sbt\\)\\'" 'utf-8)
+
+;;;***
+
 ;;;### (autoloads nil "smart-tabs-mode/smart-tabs-mode" "smart-tabs-mode/smart-tabs-mode.el"
 ;;;;;;  (21606 55519 0 0))
 ;;; Generated autoloads from smart-tabs-mode/smart-tabs-mode.el
@@ -6546,6 +6734,110 @@ Turn off `show-smartparens-mode'.
 ;;; Generated autoloads from solarized-emacs/solarized.el
 
 (when (and (boundp 'custom-theme-load-path) load-file-name) (add-to-list 'custom-theme-load-path (file-name-as-directory (file-name-directory load-file-name))))
+
+;;;***
+
+;;;### (autoloads nil "sourcemap/sourcemap" "sourcemap/sourcemap.el"
+;;;;;;  (21648 36680 0 0))
+;;; Generated autoloads from sourcemap/sourcemap.el
+
+(autoload 'sourcemap-goto-corresponding-point "sourcemap/sourcemap" "\
+hook function of coffee-mode. This function should not be used directly.
+This functions should be called in generated Javascript file.
+
+\(fn PROPS)" nil nil)
+
+(autoload 'sourcemap-from-file "sourcemap/sourcemap" "\
+
+
+\(fn FILE)" t nil)
+
+(autoload 'sourcemap-from-string "sourcemap/sourcemap" "\
+
+
+\(fn STR)" nil nil)
+
+;;;***
+
+;;;### (autoloads nil "tss/tss" "tss/tss.el" (21648 36570 0 0))
+;;; Generated autoloads from tss/tss.el
+
+(autoload 'tss-popup-help "tss/tss" "\
+Popup help about anything at point.
+
+\(fn)" t nil)
+
+(autoload 'tss-jump-to-definition "tss/tss" "\
+Jump to method definition at point.
+
+\(fn)" t nil)
+
+(autoload 'tss-implement-definition "tss/tss" "\
+Implement inherited definitions of current component.
+
+\(fn)" t nil)
+
+(autoload 'tss-run-flymake "tss/tss" "\
+Run check by flymake for current buffer.
+
+\(fn)" t nil)
+
+(autoload 'tss-reload-current-project "tss/tss" "\
+Reload project data for current buffer.
+
+\(fn)" t nil)
+
+(autoload 'tss-restart-current-buffer "tss/tss" "\
+Restart TSS for current buffer.
+
+\(fn)" t nil)
+
+(autoload 'tss-stop-current-buffer "tss/tss" "\
+Stop TSS for current buffer.
+
+\(fn)" t nil)
+
+(autoload 'tss-setup-current-buffer "tss/tss" "\
+Do setup for using TSS in current buffer.
+
+\(fn)" t nil)
+
+(autoload 'tss-config-default "tss/tss" "\
+Do setting recommemded configuration.
+
+\(fn)" nil nil)
+
+;;;***
+
+;;;### (autoloads nil "tss/typescript" "tss/typescript.el" (21648
+;;;;;;  36570 0 0))
+;;; Generated autoloads from tss/typescript.el
+
+(autoload 'typescript-mode "tss/typescript" "\
+Major mode for editing typescript.
+
+Key bindings:
+
+\\{typescript-mode-map}
+
+\(fn)" t nil)
+
+(eval-after-load 'folding '(when (fboundp 'folding-add-to-marks-list) (folding-add-to-marks-list 'typescript-mode "// {{{" "// }}}")))
+
+;;;***
+
+;;;### (autoloads nil "typed-clojure-mode/typed-clojure-mode" "typed-clojure-mode/typed-clojure-mode.el"
+;;;;;;  (21745 18779 0 0))
+;;; Generated autoloads from typed-clojure-mode/typed-clojure-mode.el
+
+(autoload 'typed-clojure-mode "typed-clojure-mode/typed-clojure-mode" "\
+The official minor mode for editing Typed Clojure. Provides
+namespace typechecking, error navigation, display of type data,
+and annotation snippets.
+
+\\{typed-clojure-mode-map}
+
+\(fn &optional ARG)" t nil)
 
 ;;;***
 
@@ -6845,6 +7137,9 @@ See `yas-minor-mode' for more information on Yas minor mode.
 ;;;***
 
 ;;;### (autoloads nil nil ("ac-company/ac-company.el" "auto-complete-clang/auto-complete-clang.el"
+;;;;;;  "auto-complete-exuberant-ctags/auto-complete-exuberant-ctags-autoloads.el"
+;;;;;;  "auto-complete-exuberant-ctags/auto-complete-exuberant-ctags-pkg.el"
+;;;;;;  "auto-complete-exuberant-ctags/auto-complete-exuberant-ctags.el"
 ;;;;;;  "auto-complete/auto-complete-pkg.el" "cider/cider-client.el"
 ;;;;;;  "cider/cider-doc.el" "cider/cider-eldoc.el" "cider/cider-interaction.el"
 ;;;;;;  "cider/cider-repl.el" "cider/cider-stacktrace.el" "cider/cider-test.el"
@@ -6853,7 +7148,8 @@ See `yas-minor-mode' for more information on Yas minor mode.
 ;;;;;;  "company-mode/company-cmake.el" "company-mode/company-eclim.el"
 ;;;;;;  "company-mode/company-elisp-tests.el" "company-mode/company-ropemacs.el"
 ;;;;;;  "company-mode/company-template.el" "company-mode/company-tests.el"
-;;;;;;  "ctable/ctable.el" "ctable/test-ctable.el" "dash/dash-functional.el"
+;;;;;;  "ctable/ctable.el" "ctable/test-ctable.el" "ctags-update/ctags-update-autoloads.el"
+;;;;;;  "ctags-update/ctags-update-pkg.el" "ctags/ctags.el" "dash/dash-functional.el"
 ;;;;;;  "dash/dash.el" "deferred/concurrent-sample.el" "deferred/concurrent.el"
 ;;;;;;  "deferred/deferred-samples.el" "deferred/deferred.el" "deferred/test-concurrent.el"
 ;;;;;;  "deferred/test-deferred.el" "el-get/el-get-autoloads.el"
@@ -6861,8 +7157,20 @@ See `yas-minor-mode' for more information on Yas minor mode.
 ;;;;;;  "el-get/el-get-core.el" "el-get/el-get-custom.el" "el-get/el-get-dependencies.el"
 ;;;;;;  "el-get/el-get-install.el" "el-get/el-get-methods.el" "el-get/el-get-notify.el"
 ;;;;;;  "el-get/el-get-recipes.el" "el-get/el-get-status.el" "elpy/elpy-pkg.el"
-;;;;;;  "elpy/elpy-refactor.el" "epc/epc.el" "epc/epcs.el" "epc/test-epc.el"
-;;;;;;  "epl/epl.el" "evil/evil-command-window.el" "evil/evil-commands.el"
+;;;;;;  "elpy/elpy-refactor.el" "ensime/ensime-auto-complete.el"
+;;;;;;  "ensime/ensime-client.el" "ensime/ensime-comint-utils.el"
+;;;;;;  "ensime/ensime-company.el" "ensime/ensime-completion-util.el"
+;;;;;;  "ensime/ensime-config.el" "ensime/ensime-debug.el" "ensime/ensime-doc.el"
+;;;;;;  "ensime/ensime-editor.el" "ensime/ensime-goto-testfile.el"
+;;;;;;  "ensime/ensime-inf.el" "ensime/ensime-inspector.el" "ensime/ensime-macros.el"
+;;;;;;  "ensime/ensime-mode.el" "ensime/ensime-model.el" "ensime/ensime-notes.el"
+;;;;;;  "ensime/ensime-pkg.el" "ensime/ensime-popup.el" "ensime/ensime-refactor.el"
+;;;;;;  "ensime/ensime-sbt.el" "ensime/ensime-scalex.el" "ensime/ensime-search.el"
+;;;;;;  "ensime/ensime-semantic-highlight.el" "ensime/ensime-stacktrace.el"
+;;;;;;  "ensime/ensime-startup.el" "ensime/ensime-test.el" "ensime/ensime-ui.el"
+;;;;;;  "ensime/ensime-undo.el" "ensime/ensime-util.el" "ensime/ensime-vars.el"
+;;;;;;  "epc/epc.el" "epc/epcs.el" "epc/test-epc.el" "epl/epl.el"
+;;;;;;  "escreen/escreen.el" "evil/evil-command-window.el" "evil/evil-commands.el"
 ;;;;;;  "evil/evil-common.el" "evil/evil-digraphs.el" "evil/evil-ex.el"
 ;;;;;;  "evil/evil-integration.el" "evil/evil-macros.el" "evil/evil-maps.el"
 ;;;;;;  "evil/evil-pkg.el" "evil/evil-repeat.el" "evil/evil-search.el"
@@ -6892,7 +7200,7 @@ See `yas-minor-mode' for more information on Yas minor mode.
 ;;;;;;  "helm/helm-plugin.el" "helm/helm-source.el" "jedi/jedi-pkg.el"
 ;;;;;;  "jedi/test-jedi.el" "jedi/tryout-jedi.el" "jira/jira-autoloads.el"
 ;;;;;;  "jira/jira-pkg.el" "jira/jira.el" "linum-relative/linum-relative.el"
-;;;;;;  "multiple-cursors/mc-cycle-cursors.el" "multiple-cursors/multiple-cursors-pkg.el"
+;;;;;;  "log4e/log4e.el" "multiple-cursors/mc-cycle-cursors.el" "multiple-cursors/multiple-cursors-pkg.el"
 ;;;;;;  "multiple-cursors/multiple-cursors.el" "nose/nose.el" "org-jira/jira-users.el"
 ;;;;;;  "org-jira/jiralib.el" "org-mode/contrib/lisp/ob-eukleides.el"
 ;;;;;;  "org-mode/contrib/lisp/ob-fomus.el" "org-mode/contrib/lisp/ob-julia.el"
@@ -6967,15 +7275,24 @@ See `yas-minor-mode' for more information on Yas minor mode.
 ;;;;;;  "org-mode/lisp/ox-texinfo.el" "org-mode/lisp/ox.el" "popup/popup.el"
 ;;;;;;  "python-environment/python-environment.el" "python-environment/test-python-environment.el"
 ;;;;;;  "queue/queue-autoloads.el" "queue/queue-pkg.el" "quickrun/test-quickrun.el"
-;;;;;;  "s/s.el" "smart-tabs-mode/smart-tabs-mode-autoloads.el" "smart-tabs-mode/smart-tabs-mode-pkg.el"
+;;;;;;  "rust-mode/rust-mode.el" "s/s.el" "sbt-mode/sbt-mode-buffer.el"
+;;;;;;  "sbt-mode/sbt-mode-comint.el" "sbt-mode/sbt-mode-pkg.el"
+;;;;;;  "sbt-mode/sbt-mode-project.el" "scala-mode2/scala-mode2-fontlock.el"
+;;;;;;  "scala-mode2/scala-mode2-imenu.el" "scala-mode2/scala-mode2-indent.el"
+;;;;;;  "scala-mode2/scala-mode2-lib.el" "scala-mode2/scala-mode2-map.el"
+;;;;;;  "scala-mode2/scala-mode2-paragraph.el" "scala-mode2/scala-mode2-pkg.el"
+;;;;;;  "scala-mode2/scala-mode2-sbt.el" "scala-mode2/scala-mode2-syntax.el"
+;;;;;;  "smart-tabs-mode/smart-tabs-mode-autoloads.el" "smart-tabs-mode/smart-tabs-mode-pkg.el"
 ;;;;;;  "smartparens/smartparens-config.el" "smartparens/smartparens-html.el"
 ;;;;;;  "smartparens/smartparens-latex.el" "smartparens/smartparens-lua.el"
 ;;;;;;  "smartparens/smartparens-pkg.el" "smartparens/smartparens-ruby.el"
 ;;;;;;  "soap-client/jira2.el" "soap-client/soap-client.el" "soap-client/soap-inspect.el"
 ;;;;;;  "solarized-emacs/solarized-dark-theme.el" "solarized-emacs/solarized-light-theme.el"
 ;;;;;;  "solarized-emacs/solarized-theme-pkg.el" "solarized-emacs/solarized-theme-utils.el"
-;;;;;;  "solarized-emacs/solarized-theme.el" "yasnippet/yasnippet-debug.el"
-;;;;;;  "yasnippet/yasnippet-tests.el") (21641 63470 890215 0))
+;;;;;;  "solarized-emacs/solarized-theme.el" "sourcemap/sourcemap-autoloads.el"
+;;;;;;  "sourcemap/sourcemap-pkg.el" "typed-clojure-mode/typed-clojure-error-mode.el"
+;;;;;;  "yasnippet/yasnippet-debug.el" "yasnippet/yasnippet-tests.el"
+;;;;;;  "yaxception/yaxception.el") (21792 35983 212545 0))
 
 ;;;***
 

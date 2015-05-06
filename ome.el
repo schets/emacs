@@ -1,5 +1,5 @@
 (when (version< emacs-version "24.3")
-  (el-get 'sync '(cl-lib))
+ ('sync '(cl-lib))
   (add-to-list 'load-path "~/.emacs.d/el-get/cl-lib"))
 
 (defvar ome-packages nil

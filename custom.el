@@ -8,27 +8,63 @@
 (menu-bar-mode -1)
 (tool-bar-mode -1)
 (scroll-bar-mode -1)
-
+(load (expand-file-name "~/quicklisp/slime-helper.el"))
+  ;; Replace "sbcl" with the path to your implementation
+(setq
+ slime-lisp-implementations
+ '((sbcl ("sbcl" "--dynamic-space-size" "1024"))))
 ;;; Calendar settings
 ;; you can use M-x sunrise-sunset to get the sun time
 (setq calendar-latitude 30.37)
 (setq calendar-longitude -97.79)
 (setq calendar-location-name "Austin, Texas, U.S.")
+(add-to-list 'auto-mode-alist '("\\.ts\\'" . typescript-mode))
+
+(load "escreen")
+(escreen-install)
+
+(setenv "PATH" (concat "/usr/local/bin/sbt/bin:" (getenv "PATH")))
+(setenv "PATH" (concat "/usr/local/bin/scala/bin:" (getenv "PATH")))
+(setenv "PATH" (concat (getenv "PATH") ":/usr/local/bin"))
+(setenv "PATH" (concat (getenv "PATH") ":/usr/bin"))
+(setenv "PATH" (concat (getenv "PATH") ":/Users/sams/.cabal/bin"))
+
+(when (memq window-system '(mac ns))
+  (exec-path-from-shell-initialize))
+
+(electric-indent-mode +1)
+
+(add-hook
+ 'rst-mode-hook
+ (lambda ()
+   (add-hook
+	'electric-indent-functions
+	(lambda () 'no-indent) nil 'local)))
+
+
+(add-to-list 'load-path "/mydirs/rust-mode/")
+(autoload 'rust-mode "rust-mode" nil t)
+(add-to-list 'auto-mode-alist '("\\.rs\\'" . rust-mode))
+
+(require 'ensime)
+(add-hook 'scala-mode-hook 'ensime-scala-mode-hook)
+
 (add-hook 'haskell-mode-hook 'my-haskell-mode-hook)
 
 (defun my-haskell-mode-hook ()
-   (haskell-indentation-mode 1)
-   (haskell-indent-mode -1)
+  (haskell-indentation-mode 1)
+  (haskell-indent-mode -1c)
 
-   ;; further customisations go here.  For example:
-   (setq locale-coding-system 'utf-8 )
-   (flyspell-prog-mode)  ;; spell-checking in comments and strings
-   ;; etc.      
+  ;; further customisations go here.  For example:
+  (setq locale-coding-system 'utf-8 )
+  (flyspell-prog-mode)  ;; spell-checking in comments and strings
+  ;; etc.      
 
-   )
+  )
 
 (require 'rainbow-delimiters)
 (add-hook 'prog-mode-hook 'rainbow-delimiters-mode)
+(add-hook 'clojure-mode-hook 'typed-clojure-mode)
 (add-hook 'clojure-mode-hook 'cider-mode)
 (add-hook 'cider-mode-hook 'company-mode)
 (add-hook 'cider-repl-mode-hook 'smartparens-strict-mode)
@@ -52,6 +88,13 @@
    (quote
 	(org-mode text-mode emacs-lisp-mode lisp-mode lisp-interaction-mode slime-repl-mode c-mode cc-mode c++-mode go-mode java-mode malabar-mode scala-mode scheme-mode ocaml-mode tuareg-mode coq-mode haskell-mode agda-mode agda2-mode perl-mode cperl-mode python-mode ruby-mode lua-mode tcl-mode ecmascript-mode javascript-mode js-mode js2-mode php-mode css-mode less-css-mode makefile-mode sh-mode fortran-mode f90-mode ada-mode xml-mode sgml-mode ts-mode sclang-mode verilog-mode qml-mode)))
  '(c-basic-offset (quote set-from-style))
+ '(c-default-style
+   (quote
+	((c-mode . "")
+	 (c++-mode . "")
+	 (java-mode . "java")
+	 (awk-mode . "awk")
+	 (other . "gnu"))))
  '(c-doc-comment-style
    (quote
 	((c-mode . gtkdoc)
@@ -72,6 +115,8 @@
 	("e16a771a13a202ee6e276d06098bc77f008b73bbac4d526f160faa2d76c1dd0e" "8aebf25556399b58091e533e455dd50a6a9cba958cc4ebb0aab175863c25b9a4" "943bff6eada8e1796f8192a7124c1129d6ff9fbd1a0aed7b57ad2bf14201fdd4" default)))
  '(elpy-default-minor-modes (quote (eldoc-mode yas-minor-mode auto-complete-mode)))
  '(elpy-rpc-backend nil)
+ '(ensime-sbt-command "/usr/local/bin/sbt")
+ '(evil-mode t)
  '(flycheck-gcc-language-standard "c++11")
  '(global-smart-tab-mode t)
  '(haskell-font-lock-symbols nil)
@@ -111,6 +156,7 @@
  '(sp-show-pair-from-inside t)
  '(term-default-bg-color "#002b36")
  '(term-default-fg-color "#839496")
+ '(typescript-mode-hook (quote (turn-on-evil-mode)))
  '(weechat-color-list
    (quote
 	(unspecified "#002b36" "#073642" "#990A1B" "#dc322f" "#546E00" "#859900" "#7B6000" "#b58900" "#00629D" "#268bd2" "#93115C" "#d33682" "#00736F" "#2aa198" "#839496" "#657b83")))
@@ -130,7 +176,6 @@
 							(setq yas-dont-activate t)))
 (add-to-list 'exec-path "/usr/local/bin")
 (add-to-list 'exec-path "/usr/bin")
-(setenv "PATH" (concat (getenv "PATH") ":/usr/local/bin"))
 
 (defconst my-cc-style
   '("stroustrup"
@@ -145,8 +190,8 @@
 (add-hook 'python-mode-hook
           (lambda () (setq indent-tabs-mode nil)))
 (smart-tabs-add-language-support c++ c++-mode-hook
-      ((c-indent-line . c-basic-offset)
-       (c-indent-region . c-basic-offset)))
+  ((c-indent-line . c-basic-offset)
+   (c-indent-region . c-basic-offset)))
 
 (setq-default tab-width 4)
 (setq cua-auto-tabify-rectangles nil)
@@ -190,7 +235,7 @@
 
 (smart-tabs-advice c-indent-line c-basic-offset)
 (smart-tabs-advice c-indent-region c-basic-offset)
-                                        
+
 
 (add-to-list 'auto-mode-alist '("\\.h\\'" . c++-mode))
 
@@ -236,11 +281,16 @@ the directories in the INCLUDE environment variable."
 (global-set-key (kbd "C-S-c C-S-c") 'mc/edit-lines)
 (global-set-key (kbd "C-n") 'mc/mark-more-like-this-extended)
 
+(defun sp-raise-current-sexp (&optional arg)
+  (interactive "P")
+  (sp-backward-up-sexp arg)
+  (sp-splice-sexp-killing-around arg))
+
 ;; better smartparens keybindings
-(let ((map smartparens-mode-map))
+(let ((map smartparens-mode-map))		;
   ;; Movement and navigation
   (define-key map (kbd "C-M-f") #'sp-forward-sexp)
-  (define-key map (kbd "C-M-b") #'sp-backward-sexp)
+  (define-key map (kbd "C-M-b") #'sp-backward-sex)
   (define-key map (kbd "C-M-u") #'sp-backward-up-sexp)
   (define-key map (kbd "C-M-d") #'sp-down-sexp)
   (define-key map (kbd "C-M-p") #'sp-backward-down-sexp)
@@ -253,6 +303,7 @@ the directories in the INCLUDE environment variable."
   (define-key map (kbd "M-<up>") #'sp-splice-sexp-killing-backward)
   (define-key map (kbd "M-<down>") #'sp-splice-sexp-killing-forward)
   (define-key map (kbd "M-r") #'sp-splice-sexp-killing-around)
+  (define-key map (kbd "M-R") #'sp-raise-current-sexp)
   (define-key map (kbd "M-?") #'sp-convolute-sexp)
   ;; Barfage & Slurpage
   (define-key map (kbd "C-)")  #'sp-forward-slurp-sexp)

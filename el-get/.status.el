@@ -13,6 +13,9 @@
 			 (ac-config-default))))
  (auto-complete-clang status "installed" recipe
 		      (:name auto-complete-clang :website "https://github.com/brianjcj/auto-complete-clang" :description "Auto-complete sources for Clang. Combine the power of AC, Clang and Yasnippet." :type github :pkgname "brianjcj/auto-complete-clang" :depends auto-complete))
+ (auto-complete-exuberant-ctags status "installed" recipe
+				(:name auto-complete-exuberant-ctags :auto-generated t :type elpa :description "Exuberant ctags auto-complete.el source" :repo nil :depends
+				       (auto-complete)))
  (buffer-move status "installed" recipe
 	      (:name buffer-move :description "Swap buffers without typing C-x b on each window" :type emacswiki :features buffer-move))
  (cider status "installed" recipe
@@ -28,6 +31,10 @@
 	       (:name company-mode :website "http://company-mode.github.io/" :description "Modular in-buffer completion framework for Emacs" :type github :pkgname "company-mode/company-mode"))
  (ctable status "installed" recipe
 	 (:name ctable :description "Table Component for elisp" :type github :pkgname "kiwanami/emacs-ctable"))
+ (ctags status "installed" recipe
+	(:name ctags :type hg :url "https://bitbucket.org/semente/ctags.el" :description "Exuberant Ctags utilities for Emacs" :website "https://bitbucket.org/semente/ctags.el"))
+ (ctags-update status "installed" recipe
+	       (:name ctags-update :auto-generated t :type elpa :description "(auto) update TAGS in parent directory using exuberant-ctags" :repo nil))
  (dash status "installed" recipe
        (:name dash :description "A modern list api for Emacs. No 'cl required." :type github :pkgname "magnars/dash.el"))
  (deferred status "installed" recipe
@@ -43,11 +50,21 @@
 	      (el-get-envpath-prepend "PYTHONPATH" default-directory)
 	      :depends
 	      (auto-complete yasnippet highlight-indentation find-file-in-project idomenu iedit nose jedi rope pyvenv)))
+ (ensime status "installed" recipe
+	 (:name ensime :description "ENhanced Scala Interaction Mode for Emacs" :type github :pkgname "ensime/ensime-emacs" :depends
+		(s dash popup auto-complete scala-mode2)
+		:prepare
+		(progn
+		  (autoload 'ensime-scala-mode-hook "ensime")
+		  (add-hook 'scala-mode-hook 'ensime-scala-mode-hook))))
  (epc status "installed" recipe
       (:name epc :description "An RPC stack for Emacs Lisp" :type github :pkgname "kiwanami/emacs-epc" :depends
 	     (deferred ctable)))
  (epl status "installed" recipe
       (:name epl :description "EPL provides a convenient high-level API for various package.el versions, and aims to overcome its most striking idiocies." :type github :pkgname "cask/epl"))
+ (escreen status "installed" recipe
+	  (:name escreen :description "Emacs window session manager" :type http :url "http://www.splode.com/~friedman/software/emacs-lisp/src/escreen.el" :prepare
+		 (autoload 'escreen-install "escreen" nil t)))
  (evil status "installed" recipe
        (:name evil :website "http://gitorious.org/evil/pages/Home" :description "Evil is an extensible vi layer for Emacs. It\n       emulates the main features of Vim, and provides facilities\n       for writing custom extensions." :type git :url "git://gitorious.org/evil/evil.git" :features evil :depends
 	      (undo-tree goto-chg)
@@ -65,6 +82,8 @@
 		(:name evil-surround :website "http://github.com/timcharper/evil-surround" :description "Emulate Tim Pope's surround.vim in evil, the extensible vim\n       emulation layer for emacs" :type github :pkgname "timcharper/evil-surround" :features evil-surround :post-init
 		       (global-evil-surround-mode 1)
 		       :depends evil))
+ (exec-path-from-shell status "installed" recipe
+		       (:name exec-path-from-shell :website "https://github.com/purcell/exec-path-from-shell" :description "Emacs plugin for dynamic PATH loading" :type github :pkgname "purcell/exec-path-from-shell"))
  (expand-region status "installed" recipe
 		(:name expand-region :type github :pkgname "magnars/expand-region.el" :description "Expand region increases the selected region by semantic units. Just keep pressing the key until it selects what you want." :website "https://github.com/magnars/expand-region.el#readme"))
  (f status "installed" recipe
@@ -130,6 +149,8 @@
        (:name json :description "JavaScript Object Notation parser / generator" :type http :builtin "23" :url "http://edward.oconnor.cx/elisp/json.el"))
  (linum-relative status "installed" recipe
 		 (:name linum-relative :type emacswiki :description "Display relative line number in the left margin" :features linum-relative))
+ (log4e status "installed" recipe
+	(:name log4e :website "https://github.com/aki2o/log4e" :description "provide logging framework for elisp." :type github :pkgname "aki2o/log4e"))
  (magit status "installed" recipe
 	(:name magit :website "https://github.com/magit/magit#readme" :description "It's Magit! An Emacs mode for Git." :type github :pkgname "magit/magit" :depends
 	       (cl-lib git-modes)
@@ -233,6 +254,10 @@
 	      :type git :url "https://github.com/python-rope/rope.git"))
  (s status "installed" recipe
     (:name s :description "The long lost Emacs string manipulation library." :type github :pkgname "magnars/s.el"))
+ (sbt-mode status "installed" recipe
+	   (:name sbt-mode :description "An emacs mode for interacting with scala sbt and projects" :type github :pkgname "hvesalai/sbt-mode"))
+ (scala-mode2 status "installed" recipe
+	      (:name scala-mode2 :description "A new scala-mode for Emacs 24." :type github :pkgname "hvesalai/scala-mode2"))
  (smart-tabs-mode status "installed" recipe
 		  (:name smart-tabs-mode :auto-generated t :type elpa :description "Intelligently indent with tabs, align with spaces!" :repo nil))
  (smartparens status "installed" recipe
@@ -242,6 +267,17 @@
  (solarized-emacs status "installed" recipe
 		  (:name solarized-emacs :description "Solarized for Emacs is an Emacs port of the Solarized theme for vim, developed by Ethan Schoonover." :website "https://github.com/bbatsov/solarized-emacs" :minimum-emacs-version "24" :type github :pkgname "bbatsov/solarized-emacs" :depends dash :prepare
 			 (add-to-list 'custom-theme-load-path default-directory)))
+ (sourcemap status "installed" recipe
+	    (:name sourcemap :auto-generated t :type elpa :description "Sourcemap parser" :repo nil :depends
+		   (cl-lib)
+		   :minimum-emacs-version
+		   (24)))
+ (tss status "installed" recipe
+      (:name tss :website "https://github.com/aki2o/emacs-tss" :description "provide a interface for auto-complete.el/flymake.el on typescript-mode." :type github :pkgname "aki2o/emacs-tss" :depends
+	     (auto-complete log4e yaxception)))
+ (typed-clojure-mode status "installed" recipe
+		     (:name typed-clojure-mode :description "Typed Clojure minor mode for Emacs" :type github :pkgname "typedclojure/typed-clojure-mode" :depends
+			    (clojure-mode cider)))
  (undo-tree status "installed" recipe
 	    (:name undo-tree :description "Treat undo history as a tree" :website "http://www.dr-qubit.org/emacs.php" :type git :url "http://www.dr-qubit.org/git/undo-tree.git/"))
  (wikipedia-mode status "installed" recipe
@@ -263,4 +299,6 @@
 	   (:name yascroll :description "Yet Another Scroll Bar Mode" :website "https://github.com/m2ym/yascroll-el" :type github :pkgname "m2ym/yascroll-el" :features "yascroll"))
  (yasnippet status "installed" recipe
 	    (:name yasnippet :website "https://github.com/capitaomorte/yasnippet.git" :description "YASnippet is a template system for Emacs." :type github :pkgname "capitaomorte/yasnippet" :compile "yasnippet.el" :submodule nil :build
-		   (("git" "submodule" "update" "--init" "--" "snippets")))))
+		   (("git" "submodule" "update" "--init" "--" "snippets"))))
+ (yaxception status "installed" recipe
+	     (:name yaxception :website "https://github.com/aki2o/yaxception" :description "provide framework about exception like Java for elisp." :type github :pkgname "aki2o/yaxception")))
