@@ -1,11 +1,11 @@
 ;;; sourcemap.el --- Sourcemap parser -*- lexical-binding: t; -*-
 
-;; Copyright (C) 2014 by Syohei YOSHIDA
+;; Copyright (C) 2015 by Syohei YOSHIDA
 
 ;; Author: Syohei YOSHIDA <syohex@gmail.com>
 ;; URL: https://github.com/syohex/emacs-sourcemap
-;; Version: 20140929.2221
-;; X-Original-Version: 0.02
+;; Package-Version: 20150418.700
+;; Version: 0.02
 ;; Package-Requires: ((cl-lib "0.5") (emacs "24"))
 
 ;; This program is free software; you can redistribute it and/or modify
@@ -45,8 +45,7 @@
   (cl-loop for char across chars
            for index = 0 then (1+ index)
            do
-           (progn
-             (puthash char index sourcemap--char2int-table))))
+           (puthash char index sourcemap--char2int-table)))
 
 (defsubst sourcemap--vlq-continuation-value-p (value)
   (not (zerop (logand value sourcemap--vlq-continuation-bit))))

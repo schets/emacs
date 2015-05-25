@@ -56,7 +56,7 @@ You can constrol whether use the case sensitive via
 ;;;***
 
 ;;;### (autoloads nil "auto-complete/auto-complete" "auto-complete/auto-complete.el"
-;;;;;;  (21581 48479 0 0))
+;;;;;;  (21840 2158 0 0))
 ;;; Generated autoloads from auto-complete/auto-complete.el
 
 (autoload 'auto-complete "auto-complete/auto-complete" "\
@@ -93,7 +93,7 @@ See `auto-complete-mode' for more information on Auto-Complete mode.
 ;;;***
 
 ;;;### (autoloads nil "auto-complete/auto-complete-config" "auto-complete/auto-complete-config.el"
-;;;;;;  (21581 48479 0 0))
+;;;;;;  (21840 2158 0 0))
 ;;; Generated autoloads from auto-complete/auto-complete-config.el
 
 (autoload 'ac-config-default "auto-complete/auto-complete-config" "\
@@ -137,7 +137,7 @@ one, an error is signaled.
 
 ;;;***
 
-;;;### (autoloads nil "cider/cider" "cider/cider.el" (21785 39818
+;;;### (autoloads nil "cider/cider" "cider/cider.el" (21840 2177
 ;;;;;;  0 0))
 ;;; Generated autoloads from cider/cider.el
 
@@ -159,7 +159,7 @@ Create REPL buffer and start an nREPL client connection.
 
 \(fn HOST PORT)" t nil)
 
-(eval-after-load 'clojure-mode '(progn (define-key clojure-mode-map (kbd "C-c M-j") 'cider-jack-in) (define-key clojure-mode-map (kbd "C-c M-c") 'cider-connect)))
+(eval-after-load 'clojure-mode '(progn (define-key clojure-mode-map (kbd "C-c M-j") #'cider-jack-in) (define-key clojure-mode-map (kbd "C-c M-c") #'cider-connect)))
 
 ;;;***
 
@@ -182,7 +182,7 @@ Shortcut for (cider-apropos <query> nil t).
 ;;;***
 
 ;;;### (autoloads nil "cider/cider-browse-ns" "cider/cider-browse-ns.el"
-;;;;;;  (21785 39818 0 0))
+;;;;;;  (21840 2177 0 0))
 ;;; Generated autoloads from cider/cider-browse-ns.el
 
 (autoload 'cider-browse-ns "cider/cider-browse-ns" "\
@@ -214,7 +214,7 @@ Open a classpath entry.
 ;;;***
 
 ;;;### (autoloads nil "cider/cider-debug" "cider/cider-debug.el"
-;;;;;;  (21785 39818 0 0))
+;;;;;;  (21840 2177 0 0))
 ;;; Generated autoloads from cider/cider-debug.el
 
 (autoload 'cider-debug-defun-at-point "cider/cider-debug" "\
@@ -224,17 +224,14 @@ immediately evaluate the instrumented expression.
 
 While debugged code is being evaluated, the user is taken through the
 source code and displayed the value of various expressions.  At each step,
-the following keys are available:
-    n: Next step
-    c: Continue without stopping
-    i: Inject a value at this point
+a number of keys will be prompted to the user.
 
 \(fn)" t nil)
 
 ;;;***
 
 ;;;### (autoloads nil "cider/cider-grimoire" "cider/cider-grimoire.el"
-;;;;;;  (21785 39818 0 0))
+;;;;;;  (21840 2177 0 0))
 ;;; Generated autoloads from cider/cider-grimoire.el
 
 (autoload 'cider-grimoire-web "cider/cider-grimoire" "\
@@ -258,7 +255,7 @@ opposite of what that option dictates.
 ;;;***
 
 ;;;### (autoloads nil "cider/cider-inspector" "cider/cider-inspector.el"
-;;;;;;  (21785 39818 0 0))
+;;;;;;  (21840 2177 0 0))
 ;;; Generated autoloads from cider/cider-inspector.el
 
 (autoload 'cider-inspect "cider/cider-inspector" "\
@@ -269,7 +266,7 @@ Eval the string EXPRESSION and inspect the result.
 ;;;***
 
 ;;;### (autoloads nil "cider/cider-macroexpansion" "cider/cider-macroexpansion.el"
-;;;;;;  (21785 39818 0 0))
+;;;;;;  (21840 2177 0 0))
 ;;; Generated autoloads from cider/cider-macroexpansion.el
 
 (autoload 'cider-macroexpand-1 "cider/cider-macroexpansion" "\
@@ -286,11 +283,11 @@ Invoke 'clojure.walk/macroexpand-all' on the expression preceding point.
 
 ;;;***
 
-;;;### (autoloads nil "cider/cider-mode" "cider/cider-mode.el" (21785
-;;;;;;  39818 0 0))
+;;;### (autoloads nil "cider/cider-mode" "cider/cider-mode.el" (21840
+;;;;;;  2177 0 0))
 ;;; Generated autoloads from cider/cider-mode.el
 
-(defvar cider-mode-line '(:eval (format " cider[%s]" (cider-current-ns))) "\
+(defvar cider-mode-line '(:eval (format " cider[%s]" (cider--modeline-info))) "\
 Mode line lighter for `cider-mode'.
 
 The value of this variable is a mode line template as in
@@ -298,7 +295,7 @@ The value of this variable is a mode line template as in
 details about mode line templates.
 
 Customize this variable to change how `cider-mode' displays its
-status in the mode line.  The default value displays the current ns.
+status in the mode line.  The default value displays the current connection.
 Set this variable to nil to disable the mode line
 entirely.")
 
@@ -325,7 +322,7 @@ Create a scratch buffer.
 ;;;***
 
 ;;;### (autoloads nil "cider/cider-selector" "cider/cider-selector.el"
-;;;;;;  (21785 39818 0 0))
+;;;;;;  (21840 2177 0 0))
 ;;; Generated autoloads from cider/cider-selector.el
 
 (autoload 'cider-selector "cider/cider-selector" "\
@@ -341,7 +338,7 @@ See `def-cider-selector-method' for defining new methods.
 ;;;***
 
 ;;;### (autoloads nil "clojure-mode/clojure-mode" "clojure-mode/clojure-mode.el"
-;;;;;;  (21635 29353 0 0))
+;;;;;;  (21840 2176 0 0))
 ;;; Generated autoloads from clojure-mode/clojure-mode.el
 
 (autoload 'clojure-mode "clojure-mode/clojure-mode" "\
@@ -351,12 +348,14 @@ Major mode for editing Clojure code.
 
 \(fn)" t nil)
 
-(add-to-list 'auto-mode-alist '("\\.\\(clj[sx]?\\|dtm\\|edn\\)\\'" . clojure-mode))
+(add-to-list 'auto-mode-alist '("\\.\\(clj[csx]?\\|dtm\\|edn\\)\\'" . clojure-mode))
+
+(add-to-list 'auto-mode-alist '("\\`build.boot\\'" . clojure-mode))
 
 ;;;***
 
 ;;;### (autoloads nil "cmake-mode/cmake-mode" "cmake-mode/cmake-mode.el"
-;;;;;;  (21581 48538 0 0))
+;;;;;;  (21840 2181 0 0))
 ;;; Generated autoloads from cmake-mode/cmake-mode.el
 
 (autoload 'cmake-mode "cmake-mode/cmake-mode" "\
@@ -407,7 +406,7 @@ Queries for any of the four available help topics and prints out the approriate 
 ;;;***
 
 ;;;### (autoloads nil "company-mode/company" "company-mode/company.el"
-;;;;;;  (21635 29859 0 0))
+;;;;;;  (21840 2177 0 0))
 ;;; Generated autoloads from company-mode/company.el
 
 (autoload 'company-mode "company-mode/company" "\
@@ -472,11 +471,11 @@ See `company-mode' for more information on Company mode.
 ;;;***
 
 ;;;### (autoloads nil "company-mode/company-bbdb" "company-mode/company-bbdb.el"
-;;;;;;  (21635 29859 0 0))
+;;;;;;  (21840 2177 0 0))
 ;;; Generated autoloads from company-mode/company-bbdb.el
 
 (autoload 'company-bbdb "company-mode/company-bbdb" "\
-`company-mode' completion back-end for `bbdb'.
+`company-mode' completion back-end for BBDB.
 
 \(fn COMMAND &optional ARG &rest IGNORE)" t nil)
 
@@ -494,7 +493,7 @@ See `company-mode' for more information on Company mode.
 ;;;***
 
 ;;;### (autoloads nil "company-mode/company-dabbrev" "company-mode/company-dabbrev.el"
-;;;;;;  (21635 29859 0 0))
+;;;;;;  (21840 2177 0 0))
 ;;; Generated autoloads from company-mode/company-dabbrev.el
 
 (autoload 'company-dabbrev "company-mode/company-dabbrev" "\
@@ -540,7 +539,7 @@ comments or strings.
 ;;;***
 
 ;;;### (autoloads nil "company-mode/company-files" "company-mode/company-files.el"
-;;;;;;  (21635 29859 0 0))
+;;;;;;  (21840 2177 0 0))
 ;;; Generated autoloads from company-mode/company-files.el
 
 (autoload 'company-files "company-mode/company-files" "\
@@ -553,7 +552,7 @@ File paths with spaces are only supported inside strings.
 ;;;***
 
 ;;;### (autoloads nil "company-mode/company-gtags" "company-mode/company-gtags.el"
-;;;;;;  (21635 29859 0 0))
+;;;;;;  (21840 2177 0 0))
 ;;; Generated autoloads from company-mode/company-gtags.el
 
 (autoload 'company-gtags "company-mode/company-gtags" "\
@@ -564,7 +563,7 @@ File paths with spaces are only supported inside strings.
 ;;;***
 
 ;;;### (autoloads nil "company-mode/company-ispell" "company-mode/company-ispell.el"
-;;;;;;  (21635 29859 0 0))
+;;;;;;  (21840 2177 0 0))
 ;;; Generated autoloads from company-mode/company-ispell.el
 
 (autoload 'company-ispell "company-mode/company-ispell" "\
@@ -607,20 +606,8 @@ File paths with spaces are only supported inside strings.
 
 ;;;***
 
-;;;### (autoloads nil "company-mode/company-pysmell" "company-mode/company-pysmell.el"
-;;;;;;  (21635 29859 0 0))
-;;; Generated autoloads from company-mode/company-pysmell.el
-
-(autoload 'company-pysmell "company-mode/company-pysmell" "\
-`company-mode' completion back-end for pysmell.
-This requires pysmell.el and pymacs.el.
-
-\(fn COMMAND &optional ARG &rest IGNORED)" t nil)
-
-;;;***
-
 ;;;### (autoloads nil "company-mode/company-semantic" "company-mode/company-semantic.el"
-;;;;;;  (21635 29859 0 0))
+;;;;;;  (21840 2177 0 0))
 ;;; Generated autoloads from company-mode/company-semantic.el
 
 (autoload 'company-semantic "company-mode/company-semantic" "\
@@ -684,7 +671,7 @@ shadow back-ends that come after it.  Recommended usages:
 ;;;***
 
 ;;;### (autoloads nil "ctags-update/ctags-update" "ctags-update/ctags-update.el"
-;;;;;;  (21661 47291 0 0))
+;;;;;;  (21840 2139 0 0))
 ;;; Generated autoloads from ctags-update/ctags-update.el
 
 (autoload 'ctags-update "ctags-update/ctags-update" "\
@@ -6566,26 +6553,8 @@ Add support for a language not already in the `smart-tabs-insinuate-alist'.
 ;;;***
 
 ;;;### (autoloads nil "smartparens/smartparens" "smartparens/smartparens.el"
-;;;;;;  (21581 48490 0 0))
+;;;;;;  (21821 11749 0 0))
 ;;; Generated autoloads from smartparens/smartparens.el
-
-(autoload 'sp-cheat-sheet "smartparens/smartparens" "\
-Generate a cheat sheet of all the smartparens interactive functions.
-
-Without a prefix argument, print only the short documentation and examples.
-
-With non-nil prefix argument, show the full documentation for each function.
-
-You can follow the links to the function or variable help page.
-To get back to the full list, use \\[help-go-back].
-
-You can use `beginning-of-defun' and `end-of-defun' to jump to
-the previous/next entry.
-
-Examples are fontified using the `font-lock-string-face' for
-better orientation.
-
-\(fn &optional ARG)" t nil)
 
 (defvar sp-keymap (make-sparse-keymap) "\
 Keymap used for `smartparens-mode'.")
@@ -6738,7 +6707,7 @@ Turn off `show-smartparens-mode'.
 ;;;***
 
 ;;;### (autoloads nil "sourcemap/sourcemap" "sourcemap/sourcemap.el"
-;;;;;;  (21648 36680 0 0))
+;;;;;;  (21840 2136 0 0))
 ;;; Generated autoloads from sourcemap/sourcemap.el
 
 (autoload 'sourcemap-goto-corresponding-point "sourcemap/sourcemap" "\
@@ -7146,7 +7115,6 @@ See `yas-minor-mode' for more information on Yas minor mode.
 ;;;;;;  "cider/cider-util.el" "cider/nrepl-client.el" "clojure-mode/clojure-mode-extra-font-locking.el"
 ;;;;;;  "company-mode/company-capf.el" "company-mode/company-clang.el"
 ;;;;;;  "company-mode/company-cmake.el" "company-mode/company-eclim.el"
-;;;;;;  "company-mode/company-elisp-tests.el" "company-mode/company-ropemacs.el"
 ;;;;;;  "company-mode/company-template.el" "company-mode/company-tests.el"
 ;;;;;;  "ctable/ctable.el" "ctable/test-ctable.el" "ctags-update/ctags-update-autoloads.el"
 ;;;;;;  "ctags-update/ctags-update-pkg.el" "ctags/ctags.el" "dash/dash-functional.el"
@@ -7275,24 +7243,24 @@ See `yas-minor-mode' for more information on Yas minor mode.
 ;;;;;;  "org-mode/lisp/ox-texinfo.el" "org-mode/lisp/ox.el" "popup/popup.el"
 ;;;;;;  "python-environment/python-environment.el" "python-environment/test-python-environment.el"
 ;;;;;;  "queue/queue-autoloads.el" "queue/queue-pkg.el" "quickrun/test-quickrun.el"
-;;;;;;  "rust-mode/rust-mode.el" "s/s.el" "sbt-mode/sbt-mode-buffer.el"
-;;;;;;  "sbt-mode/sbt-mode-comint.el" "sbt-mode/sbt-mode-pkg.el"
-;;;;;;  "sbt-mode/sbt-mode-project.el" "scala-mode2/scala-mode2-fontlock.el"
-;;;;;;  "scala-mode2/scala-mode2-imenu.el" "scala-mode2/scala-mode2-indent.el"
-;;;;;;  "scala-mode2/scala-mode2-lib.el" "scala-mode2/scala-mode2-map.el"
-;;;;;;  "scala-mode2/scala-mode2-paragraph.el" "scala-mode2/scala-mode2-pkg.el"
-;;;;;;  "scala-mode2/scala-mode2-sbt.el" "scala-mode2/scala-mode2-syntax.el"
-;;;;;;  "smart-tabs-mode/smart-tabs-mode-autoloads.el" "smart-tabs-mode/smart-tabs-mode-pkg.el"
-;;;;;;  "smartparens/smartparens-config.el" "smartparens/smartparens-html.el"
-;;;;;;  "smartparens/smartparens-latex.el" "smartparens/smartparens-lua.el"
-;;;;;;  "smartparens/smartparens-pkg.el" "smartparens/smartparens-ruby.el"
-;;;;;;  "soap-client/jira2.el" "soap-client/soap-client.el" "soap-client/soap-inspect.el"
+;;;;;;  "s/s.el" "sbt-mode/sbt-mode-buffer.el" "sbt-mode/sbt-mode-comint.el"
+;;;;;;  "sbt-mode/sbt-mode-pkg.el" "sbt-mode/sbt-mode-project.el"
+;;;;;;  "scala-mode2/scala-mode2-fontlock.el" "scala-mode2/scala-mode2-imenu.el"
+;;;;;;  "scala-mode2/scala-mode2-indent.el" "scala-mode2/scala-mode2-lib.el"
+;;;;;;  "scala-mode2/scala-mode2-map.el" "scala-mode2/scala-mode2-paragraph.el"
+;;;;;;  "scala-mode2/scala-mode2-pkg.el" "scala-mode2/scala-mode2-sbt.el"
+;;;;;;  "scala-mode2/scala-mode2-syntax.el" "smart-tabs-mode/smart-tabs-mode-autoloads.el"
+;;;;;;  "smart-tabs-mode/smart-tabs-mode-pkg.el" "smartparens/smartparens-config.el"
+;;;;;;  "smartparens/smartparens-html.el" "smartparens/smartparens-latex.el"
+;;;;;;  "smartparens/smartparens-lua.el" "smartparens/smartparens-pkg.el"
+;;;;;;  "smartparens/smartparens-ruby.el" "soap-client/jira2.el"
+;;;;;;  "soap-client/soap-client.el" "soap-client/soap-inspect.el"
 ;;;;;;  "solarized-emacs/solarized-dark-theme.el" "solarized-emacs/solarized-light-theme.el"
 ;;;;;;  "solarized-emacs/solarized-theme-pkg.el" "solarized-emacs/solarized-theme-utils.el"
 ;;;;;;  "solarized-emacs/solarized-theme.el" "sourcemap/sourcemap-autoloads.el"
 ;;;;;;  "sourcemap/sourcemap-pkg.el" "typed-clojure-mode/typed-clojure-error-mode.el"
 ;;;;;;  "yasnippet/yasnippet-debug.el" "yasnippet/yasnippet-tests.el"
-;;;;;;  "yaxception/yaxception.el") (21792 35983 212545 0))
+;;;;;;  "yaxception/yaxception.el") (21840 2471 21756 0))
 
 ;;;***
 

@@ -3,7 +3,7 @@
 ;;; Code:
 (add-to-list 'load-path (or (file-name-directory #$) (car load-path)))
 
-;;;### (autoloads nil "sourcemap" "sourcemap.el" (21648 36680 0 0))
+;;;### (autoloads nil "sourcemap" "sourcemap.el" (21840 2136 0 0))
 ;;; Generated autoloads from sourcemap.el
 
 (autoload 'sourcemap-goto-corresponding-point "sourcemap" "\

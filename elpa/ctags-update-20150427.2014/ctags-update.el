@@ -2,8 +2,8 @@
 
 ;; Created: 2011-10-16 13:17
 ;; Last Updated: 纪秀峰 2013-11-07 17:45:50 4
-;; Version: 20131125.743
-;; X-Original-Version: 0.2.2
+;; Version: 0.2.2
+;; Package-Version: 20150427.2014
 ;; Author: Joseph(纪秀峰)  jixiuf@gmail.com
 ;; Keywords: exuberant-ctags etags
 ;; URL: https://github.com/jixiuf/helm-etags-plus
@@ -117,7 +117,7 @@ then `ctags-update' will be called"
   (list
    "--fields=+iaSt"
    "--extra=+q"
-   "−−c++−kinds=+p"
+   ;; "−−c++−kinds=+p"
    "--exclude='*.elc'"
    "--exclude='*.class'"
    "--exclude='.git'"
